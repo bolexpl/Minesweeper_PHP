@@ -1,0 +1,31 @@
+body{
+    color: white;
+    font-size: 22px;
+    background: black;
+}
+
+aside{
+    background-color: blue;
+}
+
+section{
+    margin-bottom: 20px;
+}
+
+footer{
+    font-size: 20px;
+    text-align: center;
+    border-top: 1px solid white;
+}
+
+.board td img{
+    width: 62px;
+    height: 62px;
+    background: grey;
+    border: 1px solid white;
+}
+
+.board2 td img{
+    width: 62px;
+    height: 62px;
+}
