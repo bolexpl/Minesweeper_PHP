@@ -5,7 +5,7 @@
   <title><?= $title ?></title>
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/sass.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container">
@@ -27,11 +27,11 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li <?= $page == "index" ? "class=\"active\"" : "" ?>><a
-                    href="index.php">Gra <?= $page == "index" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
+          <li <?= $page == "index" ? "class=\"active\"" : "" ?>>
+            <a href="index.php">Gra <?= $page == "index" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
           </li>
-          <li <?= $page == "records" ? "class=\"active\"" : "" ?>><a
-                    href="records.php">Wyniki <?= $page == "records" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
+          <li <?= $page == "records" ? "class=\"active\"" : "" ?>>
+            <a href="records.php">Wyniki <?= $page == "records" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->

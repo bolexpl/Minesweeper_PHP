@@ -17,6 +17,11 @@ body {
     background-color: #3a3a3a; }
   body .no-decorate, body .no-decorate:hover {
     text-decoration: none; }
+  body .grey {
+    color: gray; }
+    body .grey input.form-control {
+      background-color: grey;
+      border-color: grey; }
 
 /*
 ----------------------------------------------------------------
@@ -132,4 +137,4 @@ body {
 ----------------------------------------------------------------
 */
 
-/*# sourceMappingURL=sass.css.map */
+/*# sourceMappingURL=style.css.map */

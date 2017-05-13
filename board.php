@@ -1,4 +1,9 @@
 <?php
+
+if(!isset($_POST['nick'])){
+  header("Location: index.php");
+}
+
 $title = "Saper";
 $page = "index";
 require_once "parts/header.php";
@@ -81,17 +86,15 @@ require_once "parts/header.php";
 
     <div class="row">
       <div class="col-md-12">
-        <a href="index.php" class="no-decorate">
-          <button class="btn btn-default center-block">
+        <a href="index.php">
+          <button class="btn btn-default center-block" onclick="back()">
             Wróć do ustawień
           </button>
         </a>
-
       </div>
     </div>
 
   </section>
-
 <?php
 require_once "parts/footer.php";
 ?>
