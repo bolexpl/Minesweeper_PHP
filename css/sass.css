@@ -1,0 +1,109 @@
+body {
+  color: white;
+  font-size: 22px;
+  background: black; }
+  body aside {
+    background-color: blue; }
+  body section {
+    margin-bottom: 20px; }
+  body footer {
+    padding-top: 10px;
+    font-size: 17px;
+    text-align: center;
+    border-top: 1px solid white; }
+
+/*
+----------------------------------------------------------------
+----------------------------------------------------------------
+--------------------------------------------------<plansza>
+*/
+table.board {
+  margin-top: 100px;
+  margin-left: 400px;
+  border: 1px solid white; }
+  table.board td {
+    width: 62px;
+    height: 62px;
+    -moz-box-shadow: inset 0px -3px 7px 0px #3b3b3b;
+    -webkit-box-shadow: inset 0px -3px 7px 0px #3b3b3b;
+    box-shadow: inset 0px -3px 7px 0px #3b3b3b;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #454545), color-stop(1, #000000));
+    background: -moz-linear-gradient(top, #454545 5%, #000000 100%);
+    background: -webkit-linear-gradient(top, #454545 5%, #000000 100%);
+    background: -o-linear-gradient(top, #454545 5%, #000000 100%);
+    background: -ms-linear-gradient(top, #454545 5%, #000000 100%);
+    background: linear-gradient(to bottom, #454545 5%, #000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#454545', endColorstr='#000000', GradientType=0);
+    background-color: #454545;
+    border: 1px solid #0b0e07;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 9px 23px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #000000; }
+    table.board td:hover {
+      border: 1px solid #b5b5b5; }
+    table.board td:active {
+      background: #8f8f8f; }
+    table.board td.blank {
+      font-size: 30px;
+      background: #b7b7b7; }
+      table.board td.blank.blank:active {
+        background: #8f8f8f; }
+    table.board td.one > span::after {
+      content: "1";
+      color: blue; }
+    table.board td.two > span::after {
+      content: "2";
+      color: green; }
+    table.board td.three > span::after {
+      content: "3";
+      color: red; }
+    table.board td.four > span::after {
+      content: "4";
+      color: yellow; }
+    table.board td.five > span::after {
+      content: "5";
+      color: cyan; }
+    table.board td.six > span::after {
+      content: "6";
+      color: magenta; }
+    table.board td.seven > span::after {
+      content: "7";
+      color: orange; }
+    table.board td.eight > span::after {
+      content: "8";
+      color: #6e0000; }
+    table.board td.flag, table.board td.mine, table.board td.mine-red, table.board td.covered {
+      padding: 0; }
+      table.board td.flag img, table.board td.mine img, table.board td.mine-red img, table.board td.covered img {
+        width: 50px;
+        height: 50px; }
+    table.board td.covered > img {
+      content: "";
+      display: none; }
+    table.board td.flag {
+      padding-top: 4px;
+      padding-left: 4px; }
+      table.board td.flag > img {
+        content: url("../res/flag.ico"); }
+    table.board td.mine {
+      padding-top: 4px;
+      padding-left: 4px; }
+      table.board td.mine > img {
+        content: url("../res/mine.ico"); }
+    table.board td.mine-red {
+      padding-top: 4px;
+      padding-left: 4px; }
+      table.board td.mine-red > img {
+        content: url("../res/mine-red.ico"); }
+
+/*
+--------------------------------------------------</plansza>
+----------------------------------------------------------------
+--------------------------------------------------<>
+*/
+
+/*# sourceMappingURL=sass.css.map */
