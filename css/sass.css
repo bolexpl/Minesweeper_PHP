@@ -1,7 +1,8 @@
 body {
   color: white;
   font-size: 22px;
-  background: black; }
+  background: black;
+  width: 100%; }
   body aside {
     background-color: blue; }
   body section {
@@ -11,132 +12,32 @@ body {
     font-size: 17px;
     text-align: center;
     border-top: 1px solid white; }
+  body .btn.btn-default {
+    color: #fff;
+    background-color: #3a3a3a; }
+  body .no-decorate, body .no-decorate:hover {
+    text-decoration: none; }
 
 /*
 ----------------------------------------------------------------
+--------------------------------------------------<index>
+*/
+/*
+--------------------------------------------------</index>
 ----------------------------------------------------------------
 --------------------------------------------------<plansza>
 */
-/*
-.board > table {
-  margin-top: 100px;
-  margin-left: 400px;
+.board > div {
+  margin-bottom: 20px; }
+.board .new-game {
+  width: 50px;
+  height: 50px; }
+.board .row .col-md-5 {
+  padding-top: 10px; }
+.board table {
   border: 1px solid white;
-
-  td {
-    width: $field_size;
-    height: $field_size;
-    -moz-box-shadow: inset 0px -3px 7px 0px #3b3b3b;
-    -webkit-box-shadow: inset 0px -3px 7px 0px #3b3b3b;
-    box-shadow: inset 0px -3px 7px 0px #3b3b3b;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #454545), color-stop(1, #000000));
-    background: -moz-linear-gradient(top, #454545 5%, #000000 100%);
-    background: -webkit-linear-gradient(top, #454545 5%, #000000 100%);
-    background: -o-linear-gradient(top, #454545 5%, #000000 100%);
-    background: -ms-linear-gradient(top, #454545 5%, #000000 100%);
-    background: linear-gradient(to bottom, #454545 5%, #000000 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#454545', endColorstr='#000000', GradientType=0);
-    background-color: #454545;
-    border: 1px solid #0b0e07;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 15px;
-    padding: 9px 23px;
-    text-decoration: none;
-    text-shadow: 0 1px 0 #000000;
-
-    &:hover {
-      border: 1px solid #b5b5b5;
-    }
-
-    &:active {
-      background: #8f8f8f;
-    }
-
-    &.blank {
-      font-size: 30px;
-      background: #b7b7b7;
-      &.blank:active {
-        background: #8f8f8f;
-      }
-    }
-
-    &.one > span::after {
-      content: "1";
-      color: blue;
-    }
-    &.two > span::after {
-      content: "2";
-      color: green;
-    }
-    &.three > span::after {
-      content: "3";
-      color: red;
-    }
-    &.four > span::after {
-      content: "4";
-      color: yellow;
-    }
-    &.five > span::after {
-      content: "5";
-      color: cyan;
-    }
-    &.six > span::after {
-      content: "6";
-      color: magenta;
-    }
-    &.seven > span::after {
-      content: "7";
-      color: orange;
-    }
-    &.eight > span::after {
-      content: "8";
-      color: #6e0000;
-    }
-
-    &.flag, &.mine, &.mine-red, &.covered {
-      padding: 0;
-      img {
-        width: $ico_size;
-        height: $ico_size;
-      }
-    }
-
-    &.covered > img {
-      content: "";
-      display: none;
-    }
-
-    &.flag {
-      @include field_padding;
-      & > img {
-        content: url("../res/flag.ico");
-
-      }
-    }
-
-    &.mine {
-      @include field_padding;
-      & > img {
-        content: url("../res/mine.ico");
-      }
-    }
-
-    &.mine-red {
-      @include field_padding;
-      & > img {
-        content: url("../res/mine-red.ico");
-      }
-    }
-  }
-}
-*/
-.board > table {
-  margin-top: 100px;
-  margin-left: 400px;
-  border: 1px solid white; }
-  .board > table td {
+  margin: 0 auto; }
+  .board table td {
     width: 62px;
     height: 62px;
     -moz-box-shadow: inset 0px -3px 7px 0px #3b3b3b;
@@ -158,58 +59,58 @@ body {
     padding: 9px 23px;
     text-decoration: none;
     text-shadow: 0 1px 0 #000000; }
-    .board > table td:hover {
+    .board table td:hover {
       border: 1px solid #b5b5b5; }
-    .board > table td:active {
+    .board table td:active {
       background: #8f8f8f; }
-    .board > table td.blank {
+    .board table td.blank {
       font-size: 30px;
       background: #b7b7b7; }
-      .board > table td.blank.blank:active {
+      .board table td.blank.blank:active {
         background: #8f8f8f; }
-    .board > table td.one > div::after {
+    .board table td.one > div::after {
       content: "1";
       color: blue; }
-    .board > table td.two > div::after {
+    .board table td.two > div::after {
       content: "2";
       color: green; }
-    .board > table td.three > div::after {
+    .board table td.three > div::after {
       content: "3";
       color: red; }
-    .board > table td.four > div::after {
+    .board table td.four > div::after {
       content: "4";
       color: yellow; }
-    .board > table td.five > div::after {
+    .board table td.five > div::after {
       content: "5";
       color: cyan; }
-    .board > table td.six > div::after {
+    .board table td.six > div::after {
       content: "6";
       color: magenta; }
-    .board > table td.seven > div::after {
+    .board table td.seven > div::after {
       content: "7";
       color: orange; }
-    .board > table td.eight > div::after {
+    .board table td.eight > div::after {
       content: "8";
       color: #6e0000; }
-    .board > table td.flag, .board > table td.mine, .board > table td.mine-red, .board > table td.covered {
+    .board table td.flag, .board table td.mine, .board table td.mine-red, .board table td.covered {
       padding: 0; }
-      .board > table td.flag div, .board > table td.mine div, .board > table td.mine-red div, .board > table td.covered div {
+      .board table td.flag div, .board table td.mine div, .board table td.mine-red div, .board table td.covered div {
         width: 50px;
         height: 50px; }
-    .board > table td.flag, .board > table td.mine, .board > table td.mine-red {
+    .board table td.flag, .board table td.mine, .board table td.mine-red {
       padding-top: 4px;
       padding-left: 4px; }
-      .board > table td.flag > div:after, .board > table td.mine > div:after, .board > table td.mine-red > div:after {
+      .board table td.flag > div:after, .board table td.mine > div:after, .board table td.mine-red > div:after {
         width: 50px;
         height: 50px;
         content: '';
         display: inline-block;
         background-size: 50px 50px; }
-    .board > table td.flag > div:after {
+    .board table td.flag > div:after {
       background-image: url("../res/flag.ico"); }
-    .board > table td.mine > div:after {
+    .board table td.mine > div:after {
       background-image: url("../res/mine.ico"); }
-    .board > table td.mine-red > div:after {
+    .board table td.mine-red > div:after {
       background-image: url("../res/mine-red.ico"); }
 
 /*
@@ -217,13 +118,18 @@ body {
 ----------------------------------------------------------------
 --------------------------------------------------<wyniki>
 */
-.table-striped > thead > tr {
+.records .table-striped > thead > tr {
   background-color: #363636; }
-
-.table-striped > tbody > tr:nth-of-type(odd) {
+.records .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #060606; }
-
-.table-striped > tbody > tr:nth-of-type(even) {
+.records .table-striped > tbody > tr:nth-of-type(even) {
   background-color: #252525; }
+.records option {
+  color: black; }
+
+/*
+--------------------------------------------------</wyniki>
+----------------------------------------------------------------
+*/
 
 /*# sourceMappingURL=sass.css.map */

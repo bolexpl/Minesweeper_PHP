@@ -4,63 +4,26 @@ $page = "index";
 require_once "parts/header.php";
 ?>
 
-  <section class="board">
+  <section class="index">
 
-    <table>
-      <tr>
-        <td class="blank one"><div></div></td>
-        <td class="blank two"><div></div></td>
-        <td class="blank three"><div></div></td>
-        <td class="blank four"><div></div></td>
-      </tr>
-      <tr>
-        <td class="blank five"><div></div></td>
-        <td class="blank six"><div></div></td>
-        <td class="blank seven"><div></div></td>
-        <td class="blank eight"><div></div></td>
-      </tr>
-      <tr>
-        <td class="blank"><div></div></td>
-        <td class="blank"><div></div></td>
-        <td class="blank"><div></div></td>
-        <td class="blank"><div></div></td>
-      </tr>
-      <tr>
-        <td class="blank mine-red"><div></div></td>
-        <td class="flag"><div></div></td>
-        <td class="mine"><div></div></td>
-        <td class="covered"><div></div></td>
-      </tr>
-    </table>
-
-    <!--
-    <table>
-      <tr>
-        <td class="blank one"><span></span></td>
-        <td class="blank two"><span></span></td>
-        <td class="blank three"><span></span></td>
-        <td class="blank four"><span></span></td>
-      </tr>
-      <tr>
-        <td class="blank five"><span></span></td>
-        <td class="blank six"><span></span></td>
-        <td class="blank seven"><span></span></td>
-        <td class="blank eight"><span></span></td>
-      </tr>
-      <tr>
-        <td class="blank"><span></span></td>
-        <td class="blank"><span></span></td>
-        <td class="blank"><span></span></td>
-        <td class="blank"><span></span></td>
-      </tr>
-      <tr>
-        <td class="blank mine-red"><img src=""></td>
-        <td class="flag"><img src=""></td>
-        <td class="mine"><img src=""></td>
-        <td class="covered"><img src=""></td>
-      </tr>
-    </table>
-    -->
+    <a href="board.php">plansza</a>
+    <form>
+      <div class="form-group">
+        <label for="nick">Nazwa gracza</label>
+        <input type="text" class="form-control" title="Nazwa gracza" id="nick" placeholder="Nazwa gracza">
+      </div>
+      <div class="form-group">
+        <label for="plansza">Rozmiar planszy:</label>
+        <select class="form-control" id="plansza" title="Rozmiar planszy">
+          <option value="all">Wszystkie</option>
+          <option value="8x8">8x8</option>
+          <option value="16x16">16x16</option>
+          <option value="30x16">30x16</option>
+          <option value="custom">Własne ustawienia</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-default">Nowa gra</button>
+    </form>
 
   </section>
 
