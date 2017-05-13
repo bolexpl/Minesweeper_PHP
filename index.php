@@ -5,7 +5,7 @@
   <title>Saper</title>
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sass.css">
 </head>
 <body>
 <div class="container">
@@ -36,75 +36,30 @@
 
   <section>
 
-    <table class="board2">
-      <tr>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-      </tr>
-      <tr>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-      </tr>
-      <tr>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-      </tr>
-      <tr>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-        <td><button><img src="res/flaga.png"></button></td>
-      </tr>
-    </table>
-
-    <hr/>
-
     <table class="board">
       <tr>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
+        <td class="blank one"><span></span></td>
+        <td class="blank two"><span></span></td>
+        <td class="blank three"><span></span></td>
+        <td class="blank four"><span></span></td>
       </tr>
       <tr>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
+        <td class="blank five"><span></span></td>
+        <td class="blank six"><span></span></td>
+        <td class="blank seven"><span></span></td>
+        <td class="blank eight"><span></span></td>
       </tr>
       <tr>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
+        <td class="blank"><span></span></td>
+        <td class="blank"><span></span></td>
+        <td class="blank"><span></span></td>
+        <td class="blank"><span></span></td>
       </tr>
       <tr>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
-        <td><img src="res/flaga.png"></td>
+        <td class="blank mine-red"><img src=""></td>
+        <td class="flag"><img src=""></td>
+        <td class="mine"><img src=""></td>
+        <td class="covered"><img src=""></td>
       </tr>
     </table>
 
