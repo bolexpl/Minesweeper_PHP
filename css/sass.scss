@@ -20,11 +20,11 @@ body {
 }
 
 //------------------zmienne
-
 $field_size: 62px;
 $ico_size: 50px;
 $mine_padding: 4px;
 
+//TODO usunąć
 @mixin field_padding() {
   padding: {
     top: $mine_padding;
@@ -38,7 +38,8 @@ $mine_padding: 4px;
 --------------------------------------------------<plansza>
 */
 
-table.board {
+/*
+.board > table {
   margin-top: 100px;
   margin-left: 400px;
   border: 1px solid white;
@@ -132,6 +133,7 @@ table.board {
       @include field_padding;
       & > img {
         content: url("../res/flag.ico");
+
       }
     }
 
@@ -150,10 +152,135 @@ table.board {
     }
   }
 }
+*/
+.board > table {
+  margin-top: 100px;
+  margin-left: 400px;
+  border: 1px solid white;
+
+  td {
+    width: $field_size;
+    height: $field_size;
+    -moz-box-shadow: inset 0px -3px 7px 0px #3b3b3b;
+    -webkit-box-shadow: inset 0px -3px 7px 0px #3b3b3b;
+    box-shadow: inset 0px -3px 7px 0px #3b3b3b;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #454545), color-stop(1, #000000));
+    background: -moz-linear-gradient(top, #454545 5%, #000000 100%);
+    background: -webkit-linear-gradient(top, #454545 5%, #000000 100%);
+    background: -o-linear-gradient(top, #454545 5%, #000000 100%);
+    background: -ms-linear-gradient(top, #454545 5%, #000000 100%);
+    background: linear-gradient(to bottom, #454545 5%, #000000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#454545', endColorstr='#000000', GradientType=0);
+    background-color: #454545;
+    border: 1px solid #0b0e07;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 9px 23px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #000000;
+
+    &:hover {
+      border: 1px solid #b5b5b5;
+    }
+
+    &:active {
+      background: #8f8f8f;
+    }
+
+    &.blank {
+      font-size: 30px;
+      background: #b7b7b7;
+      &.blank:active {
+        background: #8f8f8f;
+      }
+    }
+
+    &.one > div::after {
+      content: "1";
+      color: blue;
+    }
+    &.two > div::after {
+      content: "2";
+      color: green;
+    }
+    &.three > div::after {
+      content: "3";
+      color: red;
+    }
+    &.four > div::after {
+      content: "4";
+      color: yellow;
+    }
+    &.five > div::after {
+      content: "5";
+      color: cyan;
+    }
+    &.six > div::after {
+      content: "6";
+      color: magenta;
+    }
+    &.seven > div::after {
+      content: "7";
+      color: orange;
+    }
+    &.eight > div::after {
+      content: "8";
+      color: #6e0000;
+    }
+
+    &.flag, &.mine, &.mine-red, &.covered {
+      padding: 0;
+      div {
+        width: $ico_size;
+        height: $ico_size;
+      }
+    }
+
+    &.flag, &.mine, &.mine-red {
+      padding: {
+        top: $mine_padding;
+        left: $mine_padding;
+      }
+      & > div:after {
+        width: $ico_size;
+        height: $ico_size;
+        content: '';
+        display: inline-block;
+        background-size: $ico_size $ico_size;
+      }
+    }
+
+    &.flag > div:after {
+      background-image: url("../res/flag.ico");
+    }
+
+    &.mine > div:after {
+      background-image: url("../res/mine.ico");
+
+    }
+
+    &.mine-red > div:after {
+      background-image: url("../res/mine-red.ico");
+    }
+  }
+}
 
 /*
 --------------------------------------------------</plansza>
 ----------------------------------------------------------------
---------------------------------------------------<>
+--------------------------------------------------<wyniki>
 */
 
+.table-striped > thead > tr {
+  background-color: #363636;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #060606;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) {
+  background-color: #252525;
+}

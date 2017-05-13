@@ -27,8 +27,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li <?= $page == "game" ? "class=\"active\"" : "" ?>><a
-                    href="index.php">Gra <?= $page == "game" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
+          <li <?= $page == "index" ? "class=\"active\"" : "" ?>><a
+                    href="index.php">Gra <?= $page == "index" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
           </li>
           <li <?= $page == "records" ? "class=\"active\"" : "" ?>><a
                     href="records.php">Wyniki <?= $page == "records" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
