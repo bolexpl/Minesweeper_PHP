@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = "Wyniki";
 $page = "records";
 require_once "parts/header.php";
