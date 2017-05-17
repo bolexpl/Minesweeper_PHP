@@ -97,9 +97,9 @@ body {
     .board table td.eight > div::after {
       content: "8";
       color: #6e0000; }
-    .board table td.flag, .board table td.mine, .board table td.mine-red, .board table td.covered {
+    .board table td td {
       padding: 0; }
-      .board table td.flag div, .board table td.mine div, .board table td.mine-red div, .board table td.covered div {
+      .board table td td div {
         width: 50px;
         height: 50px; }
     .board table td.flag, .board table td.mine, .board table td.mine-red {

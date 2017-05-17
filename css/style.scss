@@ -148,7 +148,8 @@ $mine_padding: 4px;
         color: #6e0000;
       }
 
-      &.flag, &.mine, &.mine-red, &.covered {
+      //&.flag, &.mine, &.mine-red, &.covered
+      td {
         padding: 0;
         div {
           width: $ico_size;
