@@ -73,28 +73,28 @@ body {
       background: #b7b7b7; }
       .board table td.blank.blank:active {
         background: #8f8f8f; }
-    .board table td.one > div::after {
+    .board table td.field1 > div::after {
       content: "1";
       color: blue; }
-    .board table td.two > div::after {
+    .board table td.field2 > div::after {
       content: "2";
       color: green; }
-    .board table td.three > div::after {
+    .board table td.field3 > div::after {
       content: "3";
       color: red; }
-    .board table td.four > div::after {
+    .board table td.field4 > div::after {
       content: "4";
       color: yellow; }
-    .board table td.five > div::after {
+    .board table td.field5 > div::after {
       content: "5";
       color: cyan; }
-    .board table td.six > div::after {
+    .board table td.field6 > div::after {
       content: "6";
       color: magenta; }
-    .board table td.seven > div::after {
+    .board table td.field7 > div::after {
       content: "7";
       color: orange; }
-    .board table td.eight > div::after {
+    .board table td.field8 > div::after {
       content: "8";
       color: #6e0000; }
     .board table td td {

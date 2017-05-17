@@ -22,28 +22,28 @@
     <table>
       <tbody>
       <tr>
-        <td class="blank one">
+        <td class="blank field1">
           <div></div>
         </td>
-        <td class="blank two">
+        <td class="blank field2">
           <div></div>
         </td>
-        <td class="blank three">
+        <td class="blank field3">
           <div></div>
         </td>
-        <td class="blank four">
+        <td class="blank field4">
           <div></div>
         </td>
-        <td class="blank five">
+        <td class="blank field5">
           <div></div>
         </td>
-        <td class="blank six">
+        <td class="blank field6">
           <div></div>
         </td>
-        <td class="blank seven">
+        <td class="blank field7">
           <div></div>
         </td>
-        <td class="blank eight">
+        <td class="blank field8">
           <div></div>
         </td>
         <td class="blank">

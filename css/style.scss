@@ -115,35 +115,35 @@ $mine_padding: 4px;
         }
       }
 
-      &.one > div::after {
+      &.field1 > div::after {
         content: "1";
         color: blue;
       }
-      &.two > div::after {
+      &.field2 > div::after {
         content: "2";
         color: green;
       }
-      &.three > div::after {
+      &.field3 > div::after {
         content: "3";
         color: red;
       }
-      &.four > div::after {
+      &.field4 > div::after {
         content: "4";
         color: yellow;
       }
-      &.five > div::after {
+      &.field5 > div::after {
         content: "5";
         color: cyan;
       }
-      &.six > div::after {
+      &.field6 > div::after {
         content: "6";
         color: magenta;
       }
-      &.seven > div::after {
+      &.field7 > div::after {
         content: "7";
         color: orange;
       }
-      &.eight > div::after {
+      &.field8 > div::after {
         content: "8";
         color: #6e0000;
       }

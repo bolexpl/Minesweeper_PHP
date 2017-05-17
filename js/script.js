@@ -3,6 +3,7 @@ var plansza = "8x8";
 var width = 5;
 var height = 6;
 var countMines = 5;
+var end = false;
 
 var pola = [];
 var first = true;
@@ -13,16 +14,48 @@ function discovery(x, y) {
     }
     pola[y][x].zakryte = false;
     $(pola[y][x].td).addClass("blank");
-    // console.log("od " + (x - 1) + " do " + (x + 1));
-    // console.log("od " + (y - 1) + " do " + (y + 1));
-    for (var i = y - 1; i <= y + 1; i++) {
-        for (var j = x - 1; j <= x + 1; j++) {
-            if (!(i === y && j === x)
-                && i >= 0 && i < height
-                && j >= 0 && j < width
-                && pola[i][j].zakryte === true) {
-                discovery(j, i);
-                // console.log("pole: " + x + ", " + y + "| celuję w " + j + ", " + i);
+
+    if (pola[y][x].val === -1) {
+        $(pola[y][x].td).addClass("mine-red");
+    }
+
+    if (pola[y][x].val > 0) {
+        $(pola[y][x].td).addClass("field" + pola[y][x].val);
+    }
+
+    if (pola[y][x].val === 0) {
+        for (var i = y - 1; i <= y + 1; i++) {
+            for (var j = x - 1; j <= x + 1; j++) {
+                if (!(i === y && j === x)
+                    && i >= 0 && i < height
+                    && j >= 0 && j < width
+                    && pola[i][j].zakryte === true) {
+                    discovery(j, i);
+                }
+            }
+        }
+    }
+}
+
+function generateNumbers() {
+    for (var i = 0; i < height; i++) {
+        for (var j = 0; j < width; j++) {
+
+            if (pola[i][j].val !== -1) {
+                var count = 0;
+                for (var i2 = i - 1; i2 <= i + 1; i2++) {
+                    for (var j2 = j - 1; j2 <= j + 1; j2++) {
+
+                        if (i2 >= 0 && i2 < height
+                            && j2 >= 0 && j2 < width) {
+                            if (pola[i2][j2].val === -1) {
+                                count++;
+                            }
+                        }
+                    }
+                }
+                pola[i][j].val = count;
+                // $(pola[i][j].td).addClass("field"+count);
             }
         }
     }
@@ -47,8 +80,9 @@ function generateMines(x, y) {
             );
 
         pola[randY][randX].val = -1;
-        $(pola[randY][randX].td).addClass("mine");
+        // $(pola[randY][randX].td).addClass("mine");
     }
+    generateNumbers();
 }
 
 function Pole(td, x, y, val) {
@@ -81,7 +115,6 @@ function Pole(td, x, y, val) {
     });
 }
 
-
 function createBoard() {
     var table = $("#table").find("tbody");
 
@@ -91,7 +124,7 @@ function createBoard() {
         pola[i] = [];
 
         for (var j = 0; j < width; j++) {
-            pola[i][j] = new Pole($("<td class='blank'>").append($("<div>")), j, i, 0);
+            pola[i][j] = new Pole($("<td>").append($("<div>")), j, i, 0);
             tr.append(pola[i][j].td);
         }
     }
