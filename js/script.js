@@ -148,6 +148,7 @@ function start() {
         {},
         function (data) {
             $("#container").html(data);
+            $("#countMines").html(countMines);
             createBoard();
         }
     );
