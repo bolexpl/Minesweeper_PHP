@@ -307,7 +307,7 @@ function start() {
 
             height -= 30;
 
-            $("#table").css("max-height", height + "px");
+            $(".board-container").eq(0).css("max-height", height + "px");
         }
     );
 
