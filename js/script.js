@@ -35,6 +35,36 @@ $("#plansza").on("change", function () {
     }
 });
 
+function win() {
+    clearInterval(thread);
+    play = false;
+
+    $("#new-game").attr("src", "res/smiley.ico");
+    setTimeout(function () {
+        alert("Wygrana");
+    }, 100);
+}
+
+function lose() {
+    clearInterval(thread);
+    $(pola[y][x].td).addClass("mine-red");
+
+    play = false;
+    for (var i = 0; i < height; i++) {
+        for (var j = 0; j < width; j++) {
+
+            if (pola[i][j].val === -1 && !pola[i][j].td.hasClass("mine-red")) {
+                pola[i][j].td.addClass("mine");
+            }
+        }
+    }
+
+    $("#new-game").attr("src", "res/smiley3.ico");
+    setTimeout(function () {
+        alert("Przegrana");
+    }, 100);
+}
+
 function countDown() {
     timer.html(++time);
 }
@@ -95,23 +125,7 @@ function discovery(x, y) {
 
     // przegrana
     if (pola[y][x].val === -1) {
-        clearInterval(thread);
-        $(pola[y][x].td).addClass("mine-red");
-
-        play = false;
-        for (var i = 0; i < height; i++) {
-            for (var j = 0; j < width; j++) {
-
-                if (pola[i][j].val === -1 && !pola[i][j].td.hasClass("mine-red")) {
-                    pola[i][j].td.addClass("mine");
-                }
-            }
-        }
-
-        $("#new-game").attr("src", "res/smiley3.ico");
-        setTimeout(function () {
-            alert("Przegrana");
-        }, 100);
+        lose();
     } else {
         countEmptys--;
     }
@@ -126,13 +140,7 @@ function discovery(x, y) {
 
     // wygrana
     if (countEmptys === 0) {
-        clearInterval(thread);
-        play = false;
-
-        $("#new-game").attr("src", "res/smiley.ico");
-        setTimeout(function () {
-            alert("Wygrana");
-        }, 100);
+        win();
     }
 }
 
