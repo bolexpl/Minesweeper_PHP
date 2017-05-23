@@ -254,7 +254,7 @@ function setVariables() {
             countMines = 10;
         } else if (plansza === "16x16") {
             countMines = 40;
-        } else {
+        } else if (plansza === "16x30" || plansza === "30x16") {
             countMines = 99;
         }
     }
