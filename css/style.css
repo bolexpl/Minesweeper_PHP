@@ -32,6 +32,10 @@ body {
 ----------------------------------------------------------------
 --------------------------------------------------<plansza>
 */
+.board #table {
+  white-space: nowrap;
+  display: block;
+  overflow: auto; }
 .board > div {
   margin-bottom: 20px; }
 .board .new-game {

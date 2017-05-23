@@ -274,6 +274,7 @@ function restore() {
 
     clearInterval(thread);
     time = 0;
+    play = true;
     start();
 }
 
@@ -286,12 +287,19 @@ function start() {
             licznikMin = $("#countMines");
             licznikMin.html(countMines);
             timer = $("#timer");
+            first = true;
 
             $("#new-game").closest("button").on("click", restore);
-            console.log("start");
-
-            first = true;
             createBoard();
+
+            var height = $(window).height()
+                - $(".row").eq(0).height()
+                - $(".navbar").eq(0).height()
+                - $("footer").eq(0).height();
+
+            height -= 30;
+
+            $("#table").css("max-height", height + "px");
         }
     );
 

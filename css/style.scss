@@ -59,6 +59,12 @@ $mine_padding: 4px;
 */
 
 .board {
+  #table{
+    white-space: nowrap;
+    display: block;
+    overflow: auto;
+  }
+
   & > div {
     margin-bottom: 20px;
   }

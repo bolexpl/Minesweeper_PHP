@@ -16,7 +16,7 @@
     </table>
   </div>
 </div>
-
+<!--
 <div class="row">
   <div class="col-md-12">
     <table>
@@ -66,7 +66,7 @@
     </table>
   </div>
 </div>
-
+-->
 <div class="row">
   <div class="col-md-12">
     <button class="btn btn-default center-block" onclick="back()">
