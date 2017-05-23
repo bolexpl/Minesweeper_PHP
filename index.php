@@ -5,10 +5,7 @@ $page = "index";
 require_once "parts/header.php";
 ?>
 
-  <section class="board" id="container">
-    <?php
-    require_once "form.php";
-    ?>
+  <section class="index" id="container">
   </section>
 
 <?php

@@ -303,9 +303,7 @@ function start() {
             var height = $(window).height()
                 - $(".row").eq(0).height()
                 - $(".navbar").eq(0).height()
-                - $("footer").eq(0).height();
-
-            height -= 30;
+                - $("footer").eq(0).height() - 30;
 
             $(".board-container").eq(0).css("max-height", height + "px");
         }

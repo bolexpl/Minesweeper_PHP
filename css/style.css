@@ -34,8 +34,8 @@ body {
 */
 .board .board-container {
   overflow: auto; }
-.board #table {
-  white-space: nowrap; }
+  .board .board-container #table {
+    white-space: nowrap; }
 .board > div {
   margin-bottom: 20px; }
 .board .new-game {

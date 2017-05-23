@@ -61,11 +61,11 @@ $mine_padding: 4px;
 .board {
   .board-container{
     overflow: auto;
+    #table{
+      white-space: nowrap;
+    }
   }
-  #table{
-    white-space: nowrap;
-    //display: block;
-  }
+
 
   & > div {
     margin-bottom: 20px;

@@ -21,14 +21,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Saper</a>
+        <a class="navbar-brand" href="index.php">Saper</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li <?= $page == "index" ? "class=\"active\"" : "" ?>>
-            <a href="index.php">Gra <?= $page == "index" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
+          <li <?= $page == "game" ? "class=\"active\"" : "" ?>>
+            <a href="game.php">Gra <?= $page == "game" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
           </li>
           <li <?= $page == "records" ? "class=\"active\"" : "" ?>>
             <a href="records.php">Wyniki <?= $page == "records" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
