@@ -1,17 +1,47 @@
 var nick = "";
 var plansza = "8x8";
 
-var width = 5;
-var height = 6;
-var countMines = 5;
+var backup = {
+    width: 8,
+    height: 8,
+    countMines: 10
+};
+
+var width = 8;
+var height = 8;
+var countMines = 10;
 var countEmptys = (width * height) - countMines;
 var play = true;
 
-var licznikMin;
-var timer;
-
 var pola = [];
 var first = true;
+
+var licznikMin;
+var timer;
+var time = 0;
+var thread;
+
+$("#plansza").on("change", function () {
+    if (this.value === "custom") {
+        $("#custom").removeClass("grey");
+        $("#width").prop("disabled", false);
+        $("#height").prop("disabled", false);
+        $("#mines").prop("disabled", false);
+    } else {
+        $("#custom").addClass("grey");
+        $("#width").prop("disabled", true);
+        $("#height").prop("disabled", true);
+        $("#mines").prop("disabled", true);
+    }
+});
+
+function countDown() {
+    timer.html(++time);
+}
+
+function startTime() {
+    thread = setInterval(countDown, 1000);
+}
 
 function shoot(x, y, action) {
     var count = 0;
@@ -63,10 +93,11 @@ function discovery(x, y) {
     pola[y][x].zakryte = false;
     $(pola[y][x].td).addClass("blank");
 
+    // przegrana
     if (pola[y][x].val === -1) {
+        clearInterval(thread);
         $(pola[y][x].td).addClass("mine-red");
 
-        //przegrana
         play = false;
         for (var i = 0; i < height; i++) {
             for (var j = 0; j < width; j++) {
@@ -77,10 +108,10 @@ function discovery(x, y) {
             }
         }
 
+        $("#new-game").attr("src", "res/smiley3.ico");
         setTimeout(function () {
             alert("Przegrana");
-        },100);
-
+        }, 100);
     } else {
         countEmptys--;
     }
@@ -93,13 +124,15 @@ function discovery(x, y) {
         shoot(x, y, "dis");
     }
 
-    console.log(countEmptys);
-    if (countMines === 0 || countEmptys === 0) {
+    // wygrana
+    if (countEmptys === 0) {
+        clearInterval(thread);
         play = false;
 
+        $("#new-game").attr("src", "res/smiley.ico");
         setTimeout(function () {
             alert("Wygrana");
-        },100);
+        }, 100);
     }
 }
 
@@ -125,6 +158,7 @@ function generateNumbers() {
             }
         }
     }
+    startTime();
 }
 
 function generateMines(x, y) {
@@ -205,18 +239,45 @@ function createBoard() {
     // generateMines();
 }
 
-function start() {
-    // nick = $("#nick").val();
-    // plansza = $("#plansza").val();
-    // if (plansza === "custom") {
-    //     width = $("#width").val();
-    //     height = $("#height").val();
-    // } else {
-    //     var s = plansza.split("x");
-    //     width = s[0];
-    //     height = s[1];
-    // }
+function setVariables() {
+    nick = $("#nick").val();
+    plansza = $("#plansza").val();
+    if (plansza === "custom") {
+        width = $("#width").val();
+        height = $("#height").val();
+        countMines = $("#mines").val();
+    } else {
+        var tmp = plansza.split("x");
+        width = parseInt(tmp[0]);
+        height = parseInt(tmp[1]);
+        if (plansza === "8x8") {
+            countMines = 10;
+        } else if (plansza === "16x16") {
+            countMines = 40;
+        } else {
+            countMines = 99;
+        }
+    }
+    backup.width = width;
+    backup.height = height;
+    backup.countMines = countMines;
+    countEmptys = (width * height) - countMines;
+    start();
+    return false;
+}
 
+function restore() {
+    width = backup.width;
+    height = backup.height;
+    countMines = backup.countMines;
+    countEmptys = (width * height) - countMines;
+
+    clearInterval(thread);
+    time = 0;
+    start();
+}
+
+function start() {
     $.get(
         "board.php",
         {},
@@ -225,14 +286,21 @@ function start() {
             licznikMin = $("#countMines");
             licznikMin.html(countMines);
             timer = $("#timer");
+
+            $("#new-game").closest("button").on("click", restore);
+            console.log("start");
+
+            first = true;
             createBoard();
         }
     );
 
-    return false;
+    console.log("plansza " + plansza);
+    console.log("width " + width);
+    console.log("height " + height);
+    console.log("countMines " + countMines);
+    console.log("countEmptys " + countEmptys);
 }
-
-start();
 
 function back() {
     $.get(
@@ -243,3 +311,4 @@ function back() {
         }
     );
 }
+

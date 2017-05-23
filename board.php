@@ -2,7 +2,7 @@
   <div class="col-md-5 text-right"><span class="licznik">Pozostałe miny: <span id="countMines">99</span></span></div>
   <div class="col-md-2">
     <button class="center-block btn btn-default">
-      <img src="res/smiley1.ico" class="new-game" id="new-game">
+      <img src="res/smiley1.ico" alt="" class="new-game" id="new-game">
     </button>
   </div>
   <div class="col-md-5"><span class="licznik">Czas: <span id="timer">0</span>s</span></div>
