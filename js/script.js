@@ -1,22 +1,88 @@
 var nick = "";
 var plansza = "8x8";
+
 var width = 5;
 var height = 6;
 var countMines = 5;
-var end = false;
+var countEmptys = (width * height) - countMines;
+var play = true;
+
+var licznikMin;
+var timer;
 
 var pola = [];
 var first = true;
 
+function shoot(x, y, action) {
+    var count = 0;
+    var flags = 0;
+    for (var i = y - 1; i <= y + 1; i++) {
+        for (var j = x - 1; j <= x + 1; j++) {
+            if (!(i === y && j === x)
+                && i >= 0 && i < height
+                && j >= 0 && j < width
+                && pola[i][j].zakryte === true) {
+                switch (action) {
+                    case "dis":
+                        discovery(j, i);
+                        break;
+                    case "dis2":
+                        if (!(i === y && j === x) && pola[i][j].flag === false) {
+                            discovery(j, i);
+                        }
+                        break;
+                    case "count":
+                        if (pola[i][j].val === -1) {
+                            count++;
+                        }
+                        if (pola[i][j].flag === true) {
+                            flags++;
+                        }
+                        break;
+                }
+            }
+        }
+    }
+    return count === flags;
+}
+
 function discovery(x, y) {
-    if (pola[y][x].zakryte === false) {
+    if (!play) {
         return;
     }
+    if (pola[y][x].zakryte === false) {
+        //odkrywanie wokół liczby
+        if (pola[y][x].val > 0) {
+            if (shoot(x, y, "count")) {
+                shoot(x, y, "dis2");
+            }
+        }
+        return;
+    }
+
     pola[y][x].zakryte = false;
     $(pola[y][x].td).addClass("blank");
 
     if (pola[y][x].val === -1) {
         $(pola[y][x].td).addClass("mine-red");
+
+        //przegrana
+        play = false;
+        for (var i = 0; i < height; i++) {
+            for (var j = 0; j < width; j++) {
+
+                if (pola[i][j].val === -1 && !pola[i][j].td.hasClass("mine-red")) {
+                    pola[i][j].td.addClass("mine");
+                }
+            }
+        }
+
+        setTimeout(function () {
+            alert("Przegrana");
+        },100);
+
+    } else {
+        countEmptys--;
     }
 
     if (pola[y][x].val > 0) {
@@ -24,16 +90,16 @@ function discovery(x, y) {
     }
 
     if (pola[y][x].val === 0) {
-        for (var i = y - 1; i <= y + 1; i++) {
-            for (var j = x - 1; j <= x + 1; j++) {
-                if (!(i === y && j === x)
-                    && i >= 0 && i < height
-                    && j >= 0 && j < width
-                    && pola[i][j].zakryte === true) {
-                    discovery(j, i);
-                }
-            }
-        }
+        shoot(x, y, "dis");
+    }
+
+    console.log(countEmptys);
+    if (countMines === 0 || countEmptys === 0) {
+        play = false;
+
+        setTimeout(function () {
+            alert("Wygrana");
+        },100);
     }
 }
 
@@ -105,7 +171,15 @@ function Pole(td, x, y, val) {
         if (pola[y][x].zakryte === false) {
             return false;
         }
+
+        if (pola[y][x].flag) {
+            countMines++;
+        } else {
+            countMines--;
+        }
+        licznikMin.html(countMines);
         pola[y][x].flag = !pola[y][x].flag;
+
         if ($(e.target).is("div")) {
             $(e.target).closest("td").toggleClass("flag");
         } else {
@@ -148,7 +222,9 @@ function start() {
         {},
         function (data) {
             $("#container").html(data);
-            $("#countMines").html(countMines);
+            licznikMin = $("#countMines");
+            licznikMin.html(countMines);
+            timer = $("#timer");
             createBoard();
         }
     );

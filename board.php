@@ -70,7 +70,7 @@
 <div class="row">
   <div class="col-md-12">
     <button class="btn btn-default center-block" onclick="back()">
-      Wróć do ustawień
+      Wróć
     </button>
   </div>
 </div>
