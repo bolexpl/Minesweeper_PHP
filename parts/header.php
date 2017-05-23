@@ -34,11 +34,32 @@
             <a href="records.php">Wyniki <?= $page == "records" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
           </li>
         </ul>
+
+        <div class="btn-group navbar-right">
+          <div class="btn-group" role="group">
+            <a href="login_form.php">
+              <button type="button" class="btn btn-default navbar-btn">
+                Zaloguj
+              </button>
+            </a>
+          </div>
+          <div class="btn-group" role="group">
+            <a href="register_form.php">
+              <button type="button" class="btn btn-default navbar-btn">
+                Zarejestruj
+              </button>
+            </a>
+          </div>
+        </div>
+
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 
-<!--  <div class="alert alert-danger alert-dismissible" role="alert">-->
-<!--    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-<!--    <strong>Warning!</strong> Better check yourself, you're not looking too good.-->
-<!--  </div>-->
+  <!--
+  <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Warning!</strong> Better check yourself, you're not looking too good.
+  </div>
+  -->
