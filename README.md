@@ -1,2 +1,2 @@
 # Minesweeper_Web
-Web version of Minesweeper (my tradicional type of projects).
+Web version of Minesweeper (my traditional type of projects).
