@@ -7,7 +7,7 @@ require_once "parts/header.php";
 
   <div class="row">
     <div class="col-md-12">
-      <form method="post" action="php/login.php">
+      <form method="post" action="php/login.php<?= isset($_GET['back']) ? "?back=" . $_GET['back'] : "" ?>">
 
         <div class="form-group">
           <label for="width">Login lub email</label>

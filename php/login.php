@@ -47,5 +47,9 @@ try {
 if(isset($_SESSION['error'])){
     header("Location: ../login_form.php");
 }else{
-    header("Location: ../index.php");
+    if(isset($_GET['back']) && $_GET['back'] == "game"){
+        header("Location: ../game.php");
+    }else{
+        header("Location: ../index.php");
+    }
 }

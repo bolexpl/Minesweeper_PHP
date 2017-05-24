@@ -4,7 +4,7 @@ $title = "Gra";
 $page = "game";
 
 if(!isset($_SESSION['login'])){
-  header("Location: login_form.php");
+  header("Location: login_form.php?back=game");
 }
 
 require_once "parts/header.php";

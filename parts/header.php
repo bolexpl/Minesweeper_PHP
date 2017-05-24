@@ -12,6 +12,7 @@
 
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
+
       <!--       Brand and toggle get grouped for better mobile display-->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -23,6 +24,7 @@
         </button>
         <a class="navbar-brand" href="index.php">Saper</a>
       </div>
+
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
@@ -39,7 +41,7 @@
               ?>
             <div class="btn-group navbar-right">
               <ul class="nav navbar-nav">
-                <li <?= $page == "game" ? "class=\"active\"" : "" ?>>
+                <li <?= $page == "records_user" ? "class=\"active\"" : "" ?>>
                   <a href="records_user.php">Zalogowany
                     jako: <?= $_SESSION['login'] ?> <?= $page == "game" ? "<span class=\"sr-only\">(current)</span>" : "" ?>
                   </a>
@@ -76,8 +78,8 @@
           endif;
           ?>
 
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+      </div>
+    </div>
   </nav>
 
 
