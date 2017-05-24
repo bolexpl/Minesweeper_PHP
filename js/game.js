@@ -43,21 +43,21 @@ function win() {
         alert("Wygrana");
 
         $.ajax({
-            type:"POST",
+            type: "POST",
             url: "php/add_record.php",
             dataType: "json",
             data: {
                 time: time,
                 board: plansza
             },
-            success: function(data){
-                if(data === "end"){
+            success: function (data) {
+                if (data === "end") {
                     alert("Błąd zapisywania wyniku: sesja wygasła.");
-                }else if(data !== true){
+                } else if (data !== true) {
                     alert("Błąd zapisywania wyniku.");
                 }
             },
-            error: function() {
+            error: function () {
                 alert("Błąd połączenia.");
             }
         });
@@ -65,7 +65,7 @@ function win() {
     }, 100);
 }
 
-function lose(x,y) {
+function lose(x, y) {
     clearInterval(thread);
     $(pola[y][x].td).addClass("mine-red");
 
@@ -145,7 +145,7 @@ function discovery(x, y) {
 
     // przegrana
     if (pola[y][x].val === -1) {
-        lose(x,y);
+        lose(x, y);
     } else {
         countEmptys--;
     }
@@ -273,6 +273,15 @@ function setVariables() {
         width = $("#width").val();
         height = $("#height").val();
         countMines = $("#mines").val();
+
+        if (width.trim() === "" || height.trim() === "" || countMines.trim() === "" ||
+            parseInt(width) <= 3 || parseInt(height) <= 3 || parseInt(countMines) <= 3
+        ) {
+            return false;
+        }
+
+        plansza = width + "x" + height;
+
     } else {
         var tmp = plansza.split("x");
         width = parseInt(tmp[0]);
@@ -300,12 +309,13 @@ function restore() {
     countEmptys = (width * height) - countMines;
 
     clearInterval(thread);
-    time = 0;
-    play = true;
     start();
 }
 
 function start() {
+    time = 0;
+    play = true;
+    first = true;
     $.get(
         "board.php",
         {},
@@ -328,19 +338,33 @@ function start() {
         }
     );
 
-    console.log("plansza " + plansza);
-    console.log("width " + width);
-    console.log("height " + height);
-    console.log("countMines " + countMines);
-    console.log("countEmptys " + countEmptys);
+    // console.log("plansza " + plansza);
+    // console.log("width " + width);
+    // console.log("height " + height);
+    // console.log("countMines " + countMines);
+    // console.log("countEmptys " + countEmptys);
 }
 
 function back() {
+    clearInterval(thread);
     $.get(
         "form.php",
         {},
         function (data) {
             $("#container").html(data);
+            $("#plansza").on("change", function () {
+                if (this.value === "custom") {
+                    $("#custom").removeClass("grey");
+                    $("#width").prop("disabled", false);
+                    $("#height").prop("disabled", false);
+                    $("#mines").prop("disabled", false);
+                } else {
+                    $("#custom").addClass("grey");
+                    $("#width").prop("disabled", true);
+                    $("#height").prop("disabled", true);
+                    $("#mines").prop("disabled", true);
+                }
+            });
         }
     );
 }

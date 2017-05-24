@@ -2,6 +2,11 @@
 session_start();
 $title = "Gra";
 $page = "game";
+
+if(!isset($_SESSION['login'])){
+  header("Location: login_form.php");
+}
+
 require_once "parts/header.php";
 ?>
 

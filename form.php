@@ -1,15 +1,12 @@
 <form method="post" onsubmit="return setVariables();">
-  <!--  <div class="form-group">-->
-  <!--    <label for="nick">Nazwa gracza</label>-->
-  <!--    <input type="text" name="nick" class="form-control" title="Nazwa gracza" id="nick" placeholder="Nazwa gracza">-->
-  <!--  </div>-->
+
   <div class="form-group">
     <label for="plansza">Rozmiar planszy:</label>
     <select class="form-control" name="plansza" id="plansza" title="Rozmiar planszy">
-      <option value="8x8" selected>8x8</option>
-      <option value="16x16">16x16</option>
-      <option value="16x30">16x30</option>
-      <option value="30x16">30x16</option>
+      <option value="8x8" selected>8x8 (10 min)</option>
+      <option value="16x16">16x16 (40 min)</option>
+      <option value="16x30">16x30 (99 min)</option>
+      <option value="30x16">30x16 (99 min)</option>
       <option value="custom">Własne ustawienia</option>
     </select>
   </div>

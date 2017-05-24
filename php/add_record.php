@@ -2,8 +2,12 @@
 session_start();
 require_once "connect.php";
 
-unset($_SESSION['error']);
-unset($_SESSION['success']);
+if(isset($_SESSION['error'])){
+    unset($_SESSION['error']);
+}
+if(isset($_SESSION['success'])){
+    unset($_SESSION['success']);
+}
 
 header("Content-type:application/json");
 
