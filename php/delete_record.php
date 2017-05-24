@@ -31,4 +31,9 @@ try {
     echo $e;
 }
 
-header("Location: ../" . $_GET['page'] . ".php?" . $_GET['param1'] . "=" . $_GET['param2']);
+if (isset($_GET['board'])) {
+    header("Location: ../" . $_GET['page'] . ".php?board=" . $_GET['board']);
+} else {
+    header("Location: ../" . $_GET['page'] . ".php");
+}
+

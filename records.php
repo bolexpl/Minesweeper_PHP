@@ -107,33 +107,6 @@ require_once "parts/header.php";
         echo "Błąd pobrania wyników.";
     }
     ?>
-
-  <!--
-    <table class="table table-bordered table-striped">
-      <thead>
-      <tr>
-        <td>#</td>
-        <td>Czas</td>
-        <td>Plansza</td>
-        <td>Gracz</td>
-        <td></td>
-      </tr>
-      </thead>
-      <tbody id="container">
-
-      <tr>
-        <td>1.</td>
-        <td>1s</td>
-        <td>duża</td>
-        <td>ja</td>
-        <td>
-          <button type="button" class="btn btn-danger">Usuń</button>
-        </td>
-      </tr>
-
-      </tbody>
-    </table>
-  -->
 </section>
 
 

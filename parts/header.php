@@ -40,8 +40,9 @@
             <div class="btn-group navbar-right">
               <ul class="nav navbar-nav">
                 <li <?= $page == "game" ? "class=\"active\"" : "" ?>>
-                  <a href="">Zalogowany
-                    jako: <?= $_SESSION['login'] ?> <?= $page == "game" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
+                  <a href="records_user.php">Zalogowany
+                    jako: <?= $_SESSION['login'] ?> <?= $page == "game" ? "<span class=\"sr-only\">(current)</span>" : "" ?>
+                  </a>
                 </li>
               </ul>
               <div class="btn-group" role="group">
