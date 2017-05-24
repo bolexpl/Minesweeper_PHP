@@ -56,10 +56,23 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <!--
-  <div class="alert alert-danger alert-dismissible" role="alert">
+
+  <div class="alert alert-danger alert-dismissible <?= !isset($_SESSION['error']) ? 'hidden' : '' ?>" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
     </button>
-    <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    <strong>Ostrzeżenie!</strong>
+      <?php
+      echo isset($_SESSION['error']) ? $_SESSION['error'] : '';
+      unset($_SESSION['error']);
+      ?>
   </div>
-  -->
+
+  <div class="alert alert-success alert-dismissible <?= !isset($_SESSION['success']) ? 'hidden' : '' ?>" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Sukces!</strong>
+      <?php
+      echo isset($_SESSION['success']) ? $_SESSION['success'] : '';
+      unset($_SESSION['success']);
+      ?>
+  </div>

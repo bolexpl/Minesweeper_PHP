@@ -7,7 +7,7 @@ require_once "parts/header.php";
 
   <div class="row">
     <div class="col-md-12">
-      <form method="post">
+      <form method="post" action="php/register.php">
 
         <div class="form-group">
           <label for="width">Login</label>
@@ -16,7 +16,7 @@ require_once "parts/header.php";
 
         <div class="form-group">
           <label for="width">Email</label>
-          <input type="email" name="email" class="form-control" title="Email" id="email" placeholder="Email">
+          <input type="text" name="email" class="form-control" title="Email" id="email" placeholder="Email">
         </div>
 
         <div class="form-group">
