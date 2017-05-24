@@ -1,4 +1,3 @@
-var nick = "";
 var plansza = "8x8";
 
 var backup = {
@@ -42,10 +41,31 @@ function win() {
     $("#new-game").attr("src", "res/smiley.ico");
     setTimeout(function () {
         alert("Wygrana");
+
+        $.ajax({
+            type:"POST",
+            url: "php/add_record.php",
+            dataType: "json",
+            data: {
+                time: time,
+                board: plansza
+            },
+            success: function(data){
+                if(data === "end"){
+                    alert("Błąd zapisywania wyniku: sesja wygasła.");
+                }else if(data !== true){
+                    alert("Błąd zapisywania wyniku.");
+                }
+            },
+            error: function() {
+                alert("Błąd połączenia.");
+            }
+        });
+
     }, 100);
 }
 
-function lose() {
+function lose(x,y) {
     clearInterval(thread);
     $(pola[y][x].td).addClass("mine-red");
 
@@ -125,7 +145,7 @@ function discovery(x, y) {
 
     // przegrana
     if (pola[y][x].val === -1) {
-        lose();
+        lose(x,y);
     } else {
         countEmptys--;
     }
@@ -248,7 +268,6 @@ function createBoard() {
 }
 
 function setVariables() {
-    nick = $("#nick").val();
     plansza = $("#plansza").val();
     if (plansza === "custom") {
         width = $("#width").val();
@@ -303,7 +322,7 @@ function start() {
             var height = $(window).height()
                 - $(".row").eq(0).height()
                 - $(".navbar").eq(0).height()
-                - $("footer").eq(0).height() - 30;
+                - $("footer").eq(0).height();
 
             $(".board-container").eq(0).css("max-height", height + "px");
         }

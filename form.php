@@ -1,8 +1,8 @@
 <form method="post" onsubmit="return setVariables();">
-  <div class="form-group">
-    <label for="nick">Nazwa gracza</label>
-    <input type="text" name="nick" class="form-control" title="Nazwa gracza" id="nick" placeholder="Nazwa gracza">
-  </div>
+  <!--  <div class="form-group">-->
+  <!--    <label for="nick">Nazwa gracza</label>-->
+  <!--    <input type="text" name="nick" class="form-control" title="Nazwa gracza" id="nick" placeholder="Nazwa gracza">-->
+  <!--  </div>-->
   <div class="form-group">
     <label for="plansza">Rozmiar planszy:</label>
     <select class="form-control" name="plansza" id="plansza" title="Rozmiar planszy">

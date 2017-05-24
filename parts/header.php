@@ -12,7 +12,7 @@
 
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
+      <!--       Brand and toggle get grouped for better mobile display-->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                 data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -24,7 +24,6 @@
         <a class="navbar-brand" href="index.php">Saper</a>
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li <?= $page == "game" ? "class=\"active\"" : "" ?>>
@@ -35,22 +34,46 @@
           </li>
         </ul>
 
-        <div class="btn-group navbar-right">
-          <div class="btn-group" role="group">
-            <a href="login_form.php">
-              <button type="button" class="btn btn-default navbar-btn">
-                Zaloguj
-              </button>
-            </a>
-          </div>
-          <div class="btn-group" role="group">
-            <a href="register_form.php">
-              <button type="button" class="btn btn-default navbar-btn">
-                Zarejestruj
-              </button>
-            </a>
-          </div>
-        </div>
+          <?php
+          if (isset($_SESSION['login'])):
+              ?>
+            <div class="btn-group navbar-right">
+              <ul class="nav navbar-nav">
+                <li <?= $page == "game" ? "class=\"active\"" : "" ?>>
+                  <a href="">Zalogowany
+                    jako: <?= $_SESSION['login'] ?> <?= $page == "game" ? "<span class=\"sr-only\">(current)</span>" : "" ?></a>
+                </li>
+              </ul>
+              <div class="btn-group" role="group">
+                <a href="php/logout.php">
+                  <button type="button" class="btn btn-default navbar-btn">
+                    Wyloguj
+                  </button>
+                </a>
+              </div>
+            </div>
+              <?php
+          else:
+              ?>
+            <div class="btn-group navbar-right">
+              <div class="btn-group" role="group">
+                <a href="login_form.php">
+                  <button type="button" class="btn btn-default navbar-btn">
+                    Zaloguj
+                  </button>
+                </a>
+              </div>
+              <div class="btn-group" role="group">
+                <a href="register_form.php">
+                  <button type="button" class="btn btn-default navbar-btn">
+                    Zarejestruj
+                  </button>
+                </a>
+              </div>
+            </div>
+              <?php
+          endif;
+          ?>
 
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

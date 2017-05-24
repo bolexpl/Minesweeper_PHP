@@ -2,6 +2,9 @@
 session_start();
 require_once "connect.php";
 
+unset($_SESSION['error']);
+unset($_SESSION['success']);
+
 $login = $_POST['login'];
 $email = $_POST['email'];
 $pass = $_POST['pass'];
@@ -17,7 +20,6 @@ try {
 
     $stmt = $db->prepare("select * from users where login=:login");
     $stmt->bindValue(":login", $login, PDO::PARAM_STR);
-
     $stmt->execute();
 
     if($stmt->rowCount() == 0){
