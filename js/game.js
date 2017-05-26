@@ -127,7 +127,7 @@ function shoot(x, y, action) {
 }
 
 function discovery(x, y) {
-    if (!play) {
+    if (!play || pola[y][x].flag) {
         return;
     }
     if (pola[y][x].zakryte === false) {
@@ -337,12 +337,6 @@ function start() {
             $(".board-container").eq(0).css("max-height", height + "px");
         }
     );
-
-    // console.log("plansza " + plansza);
-    // console.log("width " + width);
-    // console.log("height " + height);
-    // console.log("countMines " + countMines);
-    // console.log("countEmptys " + countEmptys);
 }
 
 function back() {
