@@ -44,6 +44,7 @@
                 <li <?= $page == "records_user" ? "class=\"active\"" : "" ?>>
                   <a href="records_user.php">Zalogowany
                     jako: <?= $_SESSION['login'] ?> <?= $page == "game" ? "<span class=\"sr-only\">(current)</span>" : "" ?>
+                    <img src="avatars/<?=$_SESSION['avatar']?>" alt="" class="avatar">
                   </a>
                 </li>
               </ul>

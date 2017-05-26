@@ -34,6 +34,7 @@ try {
             $_SESSION['success'] = "Zalogowano";
             $_SESSION['id'] = $result['id'];
             $_SESSION['login'] = $result['login'];
+            $_SESSION['avatar'] = $result['avatar'];
         }else{
             $_SESSION['error'] = "Zły login lub hasło";
         }

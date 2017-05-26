@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "connect.php";
+require_once "../php/connect.php";
 
 if(isset($_SESSION['error'])){
     unset($_SESSION['error']);
@@ -15,7 +15,6 @@ if(!isset($_SESSION['login'])){
     echo json_encode("end");
     die();
 }
-
 
 $user_id = $_SESSION['id'];
 $time = $_POST['time'];
@@ -45,5 +44,3 @@ try {
     $db->rollBack();
     echo json_encode($e);
 }
-
-

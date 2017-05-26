@@ -2,10 +2,27 @@
 session_start();
 $title = "Moje rekordy";
 $page = "records_user";
+
+if(!isset($_SESSION['login'])){
+  header("Location: index.php");
+}
+
 require_once "parts/header.php";
 ?>
 
 <section class="records">
+
+  <form method="post" action="api/set_avatar.php" enctype="multipart/form-data">
+
+    <div class="form-group" style="width: 50%;">
+      <label for="width">Zmiana awatara</label>
+      <input type="file" name="avatar" class="form-control" title="Aby usunąć awatar nie podawaj obrazka" id="avatar" placeholder="Awatar">
+    </div>
+
+    <button class="btn btn-default" type="submit" style="display: inline-block;">Zmień</button>
+  </form>
+
+  <hr/>
 
     <?php
     require_once "php/connect.php";

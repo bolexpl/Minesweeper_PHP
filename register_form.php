@@ -7,7 +7,7 @@ require_once "parts/header.php";
 
   <div class="row">
     <div class="col-md-12">
-      <form method="post" action="php/register.php">
+      <form method="post" action="php/register.php" enctype="multipart/form-data">
 
         <div class="form-group">
           <label for="width">Login</label>
@@ -22,6 +22,11 @@ require_once "parts/header.php";
         <div class="form-group">
           <label for="width">Hasło</label>
           <input type="password" name="pass" class="form-control" title="Hasło" id="pass" placeholder="Hasło" required>
+        </div>
+
+        <div class="form-group">
+          <label for="width">Awatar</label>
+          <input type="file" name="avatar" class="form-control" title="Awatar" id="avatar" placeholder="Awatar">
         </div>
 
         <div class="form-group">

@@ -1,8 +1,31 @@
+//------------------zmienne
+$field_size: 62px;
+$ico_size: 50px;
+$mine_padding: 4px;
+$avatar_size: 50px;
+//------------------/zmienne
+
 body {
   color: white;
   font-size: 22px;
   background: black;
   width: 100%;
+
+  .avatar {
+    width: $avatar_size;
+    height: $avatar_size;
+  }
+
+  .navbar-collapse > .navbar-nav, .navbar-header, .navbar-right > .btn-group {
+    padding: {
+      top: 15px;
+      bottom: 15px;
+    }
+  }
+
+  .navbar-right > .btn-group {
+    padding-left: 10px;
+  }
 
   aside {
     background-color: blue;
@@ -38,19 +61,13 @@ body {
   }
 }
 
-//------------------zmienne
-$field_size: 62px;
-$ico_size: 50px;
-$mine_padding: 4px;
-//------------------/zmienne
-
 /*
 ----------------------------------------------------------------
 --------------------------------------------------<index>
 */
 
 .index {
-  img{
+  img {
     display: block;
     margin: 0 auto;
   }
@@ -63,9 +80,9 @@ $mine_padding: 4px;
 */
 
 .board {
-  .board-container{
+  .board-container {
     overflow: auto;
-    #table{
+    #table {
       white-space: nowrap;
     }
   }
