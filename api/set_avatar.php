@@ -23,7 +23,6 @@ try {
     $db->beginTransaction();
 
     if ($_SESSION['avatar'] !== "no_avatar.jpg") {
-        echo '../avatars/'.$_SESSION['avatar'];
         unlink('../avatars/'.$_SESSION['avatar']);
     }
 
@@ -46,14 +45,16 @@ try {
 
                 $filename = generateRandomString().".jpg";
 
-
-
+                while(file_exists("../avatars/".$filename)){
+                    $filename = generateRandomString().".jpg";
+                }
 
                 move_uploaded_file($_FILES['avatar']['tmp_name'],
                     $_SERVER['DOCUMENT_ROOT'] . '/Minesweeper_Web/avatars/' . $filename);
-                chmod('../avatars/' . $filename . ".jpg", 0777);
+                chmod('../avatars/' . $filename, 0777);
+
                 $stmt->bindValue(":avatar", $filename, PDO::PARAM_STR);
-                $_SESSION['avatar'] = $filename . ".jpg";
+                $_SESSION['avatar'] = $filename;
             }
         }
     } else {
@@ -72,4 +73,4 @@ try {
     echo $e;
 }
 
-//header("Location: ../records_user.php");
+header("Location: ../records_user.php");
