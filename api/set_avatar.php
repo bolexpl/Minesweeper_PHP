@@ -23,7 +23,8 @@ try {
     $db->beginTransaction();
 
     if ($_SESSION['avatar'] !== "no_avatar.jpg") {
-        unlink($_SESSION['avatar']);
+        echo '../avatars/'.$_SESSION['avatar'];
+        unlink('../avatars/'.$_SESSION['avatar']);
     }
 
     $stmt = $db->prepare("UPDATE `users` SET `avatar`=:avatar WHERE id=:id");
@@ -43,10 +44,15 @@ try {
 
             } else {
 
-                $filename = generateRandomString();
+                $filename = generateRandomString().".jpg";
+
+
+
+
                 move_uploaded_file($_FILES['avatar']['tmp_name'],
-                    $_SERVER['DOCUMENT_ROOT'] . '/Minesweeper_Web/avatars/' . $filename . ".jpg");
-                $stmt->bindValue(":avatar", $filename . ".jpg", PDO::PARAM_STR);
+                    $_SERVER['DOCUMENT_ROOT'] . '/Minesweeper_Web/avatars/' . $filename);
+                chmod('../avatars/' . $filename . ".jpg", 0777);
+                $stmt->bindValue(":avatar", $filename, PDO::PARAM_STR);
                 $_SESSION['avatar'] = $filename . ".jpg";
             }
         }
@@ -66,4 +72,4 @@ try {
     echo $e;
 }
 
-header("Location: ../records_user.php");
+//header("Location: ../records_user.php");
