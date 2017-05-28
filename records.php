@@ -38,7 +38,7 @@ require_once "parts/header.php";
     );
 
     try {
-        $sql = "SELECT records.id, user_id, czas, board, login FROM records INNER JOIN users ON records.user_id = users.id ORDER BY records.czas";
+        $sql = "SELECT records.id, user_id, czas, board, login, avatar FROM records INNER JOIN users ON records.user_id = users.id ORDER BY records.czas";
 
         if (isset($_GET['board'])) {
             switch ($_GET['board']) {
@@ -84,7 +84,7 @@ require_once "parts/header.php";
                 <td><?= $i++ ?>.</td>
                 <td><?= $row['czas'] ?>s</td>
                 <td><?= $row['board'] ?></td>
-                <td><img src="avatars/<?=$_SESSION['avatar']?>" alt="" class="avatar"> <?= $row['login'] ?></td>
+                <td><img src="avatars/<?=$row['avatar']?>" alt="" class="avatar"> <?= $row['login'] ?></td>
                 <td>
                   <a href="php/delete_record.php?id=<?= $row['id'] ?>&page=records&param1=board&param2=<?= $_GET['board'] ?>">
                     <button type="button" class="btn btn-danger">

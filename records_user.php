@@ -45,13 +45,16 @@ require_once "parts/header.php";
             echo "Brak wyników.";
         else:
             ?>
+
+            <h3>
+              Moje wyniki
+            </h3>
           <table class="table table-bordered table-striped">
             <thead>
             <tr>
               <td>#</td>
               <td>Czas</td>
               <td>Plansza</td>
-              <td>Gracz</td>
               <td></td>
             </tr>
             </thead>
@@ -65,7 +68,6 @@ require_once "parts/header.php";
                 <td><?= $i++ ?>.</td>
                 <td><?= $row['czas'] ?>s</td>
                 <td><?= $row['board'] ?></td>
-                <td><img src="avatars/<?=$_SESSION['avatar']?>" alt="" class="avatar"> <?= $row['login'] ?></td>
                 <td>
                   <a href="php/delete_record.php?id=<?= $row['id'] ?>&page=records_user">
                     <button type="button" class="btn btn-danger">Usuń</button>
