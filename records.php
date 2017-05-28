@@ -84,7 +84,7 @@ require_once "parts/header.php";
                 <td><?= $i++ ?>.</td>
                 <td><?= $row['czas'] ?>s</td>
                 <td><?= $row['board'] ?></td>
-                <td><?= $row['login'] ?></td>
+                <td><img src="avatars/<?=$_SESSION['avatar']?>" alt="" class="avatar"> <?= $row['login'] ?></td>
                 <td>
                   <a href="php/delete_record.php?id=<?= $row['id'] ?>&page=records&param1=board&param2=<?= $_GET['board'] ?>">
                     <button type="button" class="btn btn-danger">

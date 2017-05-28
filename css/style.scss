@@ -16,7 +16,14 @@ body {
     height: $avatar_size;
   }
 
-  .navbar-collapse > .navbar-nav, .navbar-header, .navbar-right > .btn-group {
+  #bs-example-navbar-collapse-1 > ul > li > a {
+    padding: {
+      top: 30px;
+      bottom: 30px;
+    }
+  }
+
+  .navbar-header, .navbar-right > .btn-group {
     padding: {
       top: 15px;
       bottom: 15px;
@@ -232,6 +239,10 @@ body {
 
   .table-striped > tbody > tr:nth-of-type(even) {
     background-color: #252525;
+  }
+
+  .table-striped > tbody > tr > td{
+    vertical-align: middle;
   }
 
   option {

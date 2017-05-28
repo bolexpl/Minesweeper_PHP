@@ -23,7 +23,7 @@ try {
     $db->beginTransaction();
 
     if ($_SESSION['avatar'] !== "no_avatar.jpg") {
-        unlink('../avatars/'.$_SESSION['avatar']);
+        unlink('../avatars/' . $_SESSION['avatar']);
     }
 
     $stmt = $db->prepare("UPDATE `users` SET `avatar`=:avatar WHERE id=:id");
@@ -38,15 +38,29 @@ try {
 
         } else {
 
-            if (isset($_FILES['avatar']['type']) != "image/jpg") {
+            if (isset($_FILES['avatar']['type']) != "image/jpg" && $_FILES['avatar']['type'] != "image/png") {
                 $_SESSION['error'] = "Zły format pliku";
 
             } else {
 
-                $filename = generateRandomString().".jpg";
+                $filename = generateRandomString();
 
-                while(file_exists("../avatars/".$filename)){
-                    $filename = generateRandomString().".jpg";
+                if ($_FILES['avatar']['type'] == "image/jpg") {
+                    $filename .= ".jpg";
+                } else if ($_FILES['avatar']['type'] == "image/png") {
+                    $filename .= ".png";
+                }
+
+                $changed = false;
+                while (file_exists("../avatars/" . $filename)) {
+                    $filename = generateRandomString();
+                    $changed = true;
+                }
+
+                if ($changed && $_FILES['avatar']['type'] == "image/jpg") {
+                    $filename .= ".jpg";
+                } else if ($changed && $_FILES['avatar']['type'] == "image/png") {
+                    $filename .= ".png";
                 }
 
                 move_uploaded_file($_FILES['avatar']['tmp_name'],
