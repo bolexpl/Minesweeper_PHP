@@ -10,13 +10,13 @@ require_once "parts/header.php";
       <form method="post" action="php/login.php<?= isset($_GET['back']) ? "?back=" . $_GET['back'] : "" ?>">
 
         <div class="form-group">
-          <label for="width">Login lub email</label>
+          <label for="login">Login lub email</label>
           <input type="text" name="login" class="form-control" title="Login lub email" id="login"
                  placeholder="Login lub email" required>
         </div>
 
         <div class="form-group">
-          <label for="width">Hasło</label>
+          <label for="pass">Hasło</label>
           <input type="password" name="pass" class="form-control" title="Hasło" id="pass" placeholder="Hasło" required>
         </div>
 

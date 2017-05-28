@@ -10,22 +10,22 @@ require_once "parts/header.php";
       <form method="post" action="php/register.php" enctype="multipart/form-data">
 
         <div class="form-group">
-          <label for="width">Login</label>
+          <label for="login">Login</label>
           <input type="text" name="login" class="form-control" title="Login" id="login" placeholder="Login" required>
         </div>
 
         <div class="form-group">
-          <label for="width">Email</label>
+          <label for="email">Email</label>
           <input type="email" name="email" class="form-control" title="Email" id="email" placeholder="Email" required>
         </div>
 
         <div class="form-group">
-          <label for="width">Hasło</label>
+          <label for="pass">Hasło</label>
           <input type="password" name="pass" class="form-control" title="Hasło" id="pass" placeholder="Hasło" required>
         </div>
 
         <div class="form-group">
-          <label for="width">Awatar</label>
+          <label for="avatar">Awatar</label>
           <input type="file" name="avatar" class="form-control" title="Awatar" id="avatar" placeholder="Awatar">
         </div>
 
