@@ -9,7 +9,7 @@ require_once "parts/header.php";
 
     <div class="row">
 
-      <div class="col-md-12">
+      <div class="col-xs-12">
         <img src="res/Asaper.jpg"/>
       </div>
 
@@ -17,7 +17,7 @@ require_once "parts/header.php";
 
     <div class="row">
 
-      <div class="col-md-12">
+      <div class="col-xs-12">
         <p>
           Saper (tytuł oryginalny Minesweeper) – klasyczna jednoosobowa gra komputerowa napisana w 1981 roku przez
           Roberta Donnera, dostępna jako akcesorium w każdym systemie Microsoft Windows do wersji 7. Od wersji 8 i RT
