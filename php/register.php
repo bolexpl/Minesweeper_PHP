@@ -22,8 +22,9 @@ $db = new PDO('mysql:host=' . $db_host . ";dbname=$db_name;charset=utf8", $db_us
 try {
     $db->beginTransaction();
 
-    $stmt = $db->prepare("SELECT * FROM users WHERE login=:login");
+    $stmt = $db->prepare("SELECT * FROM users WHERE login=:login or email=:email");
     $stmt->bindValue(":login", $login, PDO::PARAM_STR);
+    $stmt->bindValue(":email", $email, PDO::PARAM_STR);
     $stmt->execute();
 
     if ($stmt->rowCount() == 0) {
