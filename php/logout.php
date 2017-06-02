@@ -11,6 +11,7 @@ if(isset($_SESSION['success'])){
 if(isset($_SESSION['login'])){
     unset($_SESSION['id']);
     unset($_SESSION['login']);
+    unset($_SESSION['avatar']);
     $_SESSION['success'] = "Wylogowano";
 }
 
