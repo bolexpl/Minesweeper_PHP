@@ -277,6 +277,7 @@ function setVariables() {
         if (width.trim() === "" || height.trim() === "" || countMines.trim() === "" ||
             parseInt(width) <= 3 || parseInt(height) <= 3 || parseInt(countMines) <= 3
         ) {
+            alert("Złe wartości");
             return false;
         }
 
