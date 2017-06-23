@@ -20,13 +20,6 @@ $user_id = $_SESSION['id'];
 $time = $_POST['time'];
 $board = $_POST['board'];
 
-$db = new PDO('mysql:host=' . $db_host . ";dbname=$db_name;charset=utf8", $db_user, $db_password,
-    array(
-        PDO::ATTR_EMULATE_PREPARES => false,
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    )
-);
-
 try {
     $db->beginTransaction();
 

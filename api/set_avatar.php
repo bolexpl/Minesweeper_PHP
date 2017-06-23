@@ -13,12 +13,6 @@ if (isset($_SESSION['success'])) {
     unset($_SESSION['success']);
 }
 
-$db = new PDO('mysql:host=' . $db_host . ";dbname=$db_name;charset=utf8", $db_user, $db_password,
-    array(
-        PDO::ATTR_EMULATE_PREPARES => false,
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    )
-);
 try {
     $db->beginTransaction();
 
