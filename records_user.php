@@ -15,7 +15,7 @@ require_once "parts/header.php";
   <form method="post" action="api/set_avatar.php" enctype="multipart/form-data">
 
     <div class="form-group" style="width: 50%;">
-      <label for="width">Zmiana awatara</label>
+      <label for="avatar">Zmiana awatara</label>
       <input type="file" name="avatar" class="form-control" title="Aby usunąć awatar nie podawaj obrazka" id="avatar" placeholder="Awatar">
     </div>
 
