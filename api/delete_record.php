@@ -18,15 +18,9 @@ try {
 
     $db->commit();
 
+    echo json_encode(true);
+
 } catch (PDOException $e) {
     $db->rollBack();
-    $_SESSION['error'] = "Błąd usuwania wyniku";
-    echo $e;
+    echo json_encode("Błąd usuwania wyniku");
 }
-
-if (isset($_GET['board'])) {
-    header("Location: ../" . $_GET['page'] . ".php?board=" . $_GET['board']);
-} else {
-    header("Location: ../" . $_GET['page'] . ".php");
-}
-

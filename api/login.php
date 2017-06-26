@@ -2,11 +2,8 @@
 session_start();
 require_once "../php/connect.php";
 
-//$login = $_POST['login'];
-//$pass = $_POST['pass'];
-
-$login = "api";
-$pass = "api";
+$login = $_POST['login'];
+$pass = $_POST['pass'];
 
 $db = new PDO('mysql:host=' . $db_host . ";dbname=$db_name;charset=utf8", $db_user, $db_password,
     array(
