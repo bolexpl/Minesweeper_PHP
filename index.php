@@ -7,7 +7,7 @@ require_once "parts/header.php";
 
   <section class="index">
 
-    <a href="api_debug.php">debug</a><br/>
+    <a href="api_debug.php">api_debug</a><br/>
 
     <div class="row">
 

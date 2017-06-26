@@ -20,7 +20,7 @@ $_SESSION['avatar'] = "no_avatar.jpg"
 <body>
 <div class="container">
 
-  <h1>Test API</h1>
+  <h1>API test</h1>
 
   <hr/>
   Logowanie:<br/>
