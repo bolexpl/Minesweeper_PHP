@@ -19,6 +19,7 @@ $db = new PDO('mysql:host=' . $db_host . ";dbname=$db_name;charset=utf8", $db_us
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     )
 );
+
 try {
     $db->beginTransaction();
 
@@ -72,7 +73,6 @@ try {
 } catch (PDOException $e) {
     $db->rollBack();
     $_SESSION['error'] = "Błąd rejestracji";
-    echo $e;
 }
 
 if (isset($_SESSION['error'])) {

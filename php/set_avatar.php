@@ -78,7 +78,6 @@ try {
 } catch (PDOException $e) {
     $db->rollBack();
     $_SESSION['error'] = "Błąd zmiany awatara";
-    echo $e;
 }
 
 header("Location: ../records_user.php");
