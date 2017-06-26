@@ -2,17 +2,10 @@
 session_start();
 require_once "../php/connect.php";
 
-if(isset($_SESSION['error'])){
-    unset($_SESSION['error']);
-}
-if(isset($_SESSION['success'])){
-    unset($_SESSION['success']);
-}
-
 header("Content-type:application/json");
 
 if(!isset($_SESSION['login'])){
-    echo json_encode("end");
+    echo json_encode("false");
     die();
 }
 
@@ -29,11 +22,10 @@ try {
     $stmt->bindValue(":board", $board, PDO::PARAM_STR);
     $stmt->execute();
 
-    echo json_encode(true);
-
     $db->commit();
+    echo json_encode(true);
 
 } catch (PDOException $e) {
     $db->rollBack();
-    echo json_encode($e);
+    echo json_encode("Błąd bazy danych");
 }

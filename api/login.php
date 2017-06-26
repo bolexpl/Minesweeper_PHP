@@ -28,6 +28,10 @@ try {
 
         if(password_verify($pass,$result["pass"])){
 
+            $_SESSION['id'] = $result['id'];
+            $_SESSION['login'] = $result['login'];
+            $_SESSION['avatar'] = $result['avatar'];
+
             $response['error'] = null;
             $response['success'] = "Zalogowano";
             $response['id'] = $result['id'];
