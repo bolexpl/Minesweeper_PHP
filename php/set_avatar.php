@@ -22,7 +22,7 @@ try {
 
     $stmt = $db->prepare("UPDATE `users` SET `avatar`=:avatar WHERE id=:id");
 
-    $stmt->bindValue(":id", $_SESSION['id'] . ".jpg", PDO::PARAM_STR);
+    $stmt->bindValue(":id", $_SESSION['id'], PDO::PARAM_STR);
 
     $max_rozmiar = 1024 * 1024;
     if (isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name'])) {
@@ -32,14 +32,14 @@ try {
 
         } else {
 
-            if (isset($_FILES['avatar']['type']) != "image/jpg" && $_FILES['avatar']['type'] != "image/png") {
+            if (isset($_FILES['avatar']['type']) != "image/jpeg" && $_FILES['avatar']['type'] != "image/png") {
                 $_SESSION['error'] = "Zły format pliku";
 
             } else {
 
                 $filename = generateRandomString();
 
-                if ($_FILES['avatar']['type'] == "image/jpg") {
+                if ($_FILES['avatar']['type'] == "image/jpeg") {
                     $filename .= ".jpg";
                 } else if ($_FILES['avatar']['type'] == "image/png") {
                     $filename .= ".png";
@@ -57,8 +57,8 @@ try {
                     $filename .= ".png";
                 }
 
-                move_uploaded_file($_FILES['avatar']['tmp_name'],
-                    $_SERVER['DOCUMENT_ROOT'] . '/Minesweeper_Web/avatars/' . $filename);
+                move_uploaded_file($_FILES['avatar']['tmp_name'], '../avatars/' . $filename);
+
                 chmod('../avatars/' . $filename, 0777);
 
                 $stmt->bindValue(":avatar", $filename, PDO::PARAM_STR);

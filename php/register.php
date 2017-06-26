@@ -22,7 +22,7 @@ $db = new PDO('mysql:host=' . $db_host . ";dbname=$db_name;charset=utf8", $db_us
 try {
     $db->beginTransaction();
 
-    $stmt = $db->prepare("SELECT * FROM users WHERE login=:login or email=:email");
+    $stmt = $db->prepare("SELECT * FROM users WHERE login=:login OR email=:email");
     $stmt->bindValue(":login", $login, PDO::PARAM_STR);
     $stmt->bindValue(":email", $email, PDO::PARAM_STR);
     $stmt->execute();
@@ -40,15 +40,21 @@ try {
                 $_SESSION['error'] = "Plik jest za duży";
             } else {
 
-                if (isset($_FILES['avatar']['type']) != "image/jpg") {
+                if (isset($_FILES['avatar']['type']) && $_FILES['avatar']['type'] != "image/jpeg" && $_FILES['avatar']['type'] != "image/png") {
                     echo 'Typ: ' . $_FILES['avatar']['type'] . '<br/>';
                     $_SESSION['error'] = "Zły format pliku";
 
                 } else {
                     $filename = generateRandomString();
-                    move_uploaded_file($_FILES['avatar']['tmp_name'],
-                        $_SERVER['DOCUMENT_ROOT'] . '/Minesweeper_Web/avatars/' . $filename . ".jpg");
-                    $stmt->bindValue(":avatar", $filename . ".jpg", PDO::PARAM_STR);
+
+                    if ($_FILES['avatar']['type'] == "image/jpeg") {
+                        $filename .= ".jpg";
+                    } else if ($_FILES['avatar']['type'] == "image/png") {
+                        $filename .= ".png";
+                    }
+
+                    move_uploaded_file($_FILES['avatar']['tmp_name'], '../avatars/' . $filename);
+                    $stmt->bindValue(":avatar", $filename, PDO::PARAM_STR);
                 }
             }
         } else {
