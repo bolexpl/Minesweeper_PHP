@@ -2,9 +2,12 @@
 session_start();
 require_once "../php/connect.php";
 
+$response = [];
+$response['error'] = null;
+
 if (!isset($_SESSION['login'])) {
     echo json_encode("login");
-}else {
+} else {
 
     try {
         $db->beginTransaction();
@@ -18,35 +21,32 @@ if (!isset($_SESSION['login'])) {
         $stmt->bindValue(":id", $_SESSION['id'], PDO::PARAM_STR);
 
         $max_rozmiar = 1024 * 1024;
+
         if (isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name'])) {
 
             if ($_FILES['avatar']['size'] > $max_rozmiar) {
-                echo json_encode("Plik jest za duży");
+                $response['error'] = "Plik jest za duży";
+                echo json_encode($response);
+                die();
 
             } else {
 
                 if (isset($_FILES['avatar']['type']) != "image/jpeg" && $_FILES['avatar']['type'] != "image/png") {
-                    echo json_encode("Zły format pliku");
+                    $response['error'] = "Zły format pliku";
+                    echo json_encode($response);
+                    die();
 
                 } else {
 
-                    $filename = generateRandomString();
+                    $filename = null;
+
+                    do {
+                        $filename = generateRandomString();
+                    } while (file_exists("../avatars/" . $filename));
 
                     if ($_FILES['avatar']['type'] == "image/jpeg") {
                         $filename .= ".jpg";
                     } else if ($_FILES['avatar']['type'] == "image/png") {
-                        $filename .= ".png";
-                    }
-
-                    $changed = false;
-                    while (file_exists("../avatars/" . $filename)) {
-                        $filename = generateRandomString();
-                        $changed = true;
-                    }
-
-                    if ($changed && $_FILES['avatar']['type'] == "image/jpg") {
-                        $filename .= ".jpg";
-                    } else if ($changed && $_FILES['avatar']['type'] == "image/png") {
                         $filename .= ".png";
                     }
 
@@ -63,13 +63,15 @@ if (!isset($_SESSION['login'])) {
             $_SESSION['avatar'] = "no_avatar.jpg";
         }
         $stmt->execute();
-
-        $_SESSION['success'] = "Zmieniono";
-
         $db->commit();
+
+        $response['success'] = "Zmieniono";
+        $response['avatar'] = $_SESSION['avatar'];
+
 
     } catch (PDOException $e) {
         $db->rollBack();
-        echo json_encode("Błąd bazy danych");
+        $response['error'] = "Błąd bazy danych";
     }
 }
+echo json_encode($response);

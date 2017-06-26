@@ -25,6 +25,7 @@ try {
     $stmt->bindValue(":id", $_SESSION['id'], PDO::PARAM_STR);
 
     $max_rozmiar = 1024 * 1024;
+
     if (isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name'])) {
 
         if ($_FILES['avatar']['size'] > $max_rozmiar) {
@@ -37,23 +38,15 @@ try {
 
             } else {
 
-                $filename = generateRandomString();
+                $filename = null;
+
+                do {
+                    $filename = generateRandomString();
+                } while (file_exists("../avatars/" . $filename));
 
                 if ($_FILES['avatar']['type'] == "image/jpeg") {
                     $filename .= ".jpg";
                 } else if ($_FILES['avatar']['type'] == "image/png") {
-                    $filename .= ".png";
-                }
-
-                $changed = false;
-                while (file_exists("../avatars/" . $filename)) {
-                    $filename = generateRandomString();
-                    $changed = true;
-                }
-
-                if ($changed && $_FILES['avatar']['type'] == "image/jpg") {
-                    $filename .= ".jpg";
-                } else if ($changed && $_FILES['avatar']['type'] == "image/png") {
                     $filename .= ".png";
                 }
 

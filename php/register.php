@@ -55,6 +55,9 @@ try {
                     }
 
                     move_uploaded_file($_FILES['avatar']['tmp_name'], '../avatars/' . $filename);
+
+                    chmod('../avatars/' . $filename, 0777);
+
                     $stmt->bindValue(":avatar", $filename, PDO::PARAM_STR);
                 }
             }

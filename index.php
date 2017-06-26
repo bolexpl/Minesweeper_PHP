@@ -7,6 +7,8 @@ require_once "parts/header.php";
 
   <section class="index">
 
+    <a href="debug.php">debug</a><br/>
+
     <div class="row">
 
       <div class="col-xs-12">
