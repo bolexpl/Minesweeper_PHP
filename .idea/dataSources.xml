@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Minesweeper_Web@localhost" uuid="784ae9f5-571e-44cd-84c6-45a8edf18033">
+    <data-source source="LOCAL" name="Minesweeper_PHP@localhost" uuid="058c1e19-03c3-44cd-82c5-7b451fc7cde4">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/Minesweeper_Web</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/Minesweeper_PHP</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

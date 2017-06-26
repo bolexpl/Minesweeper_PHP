@@ -11,7 +11,7 @@ require_once "parts/header.php";
 
         <div class="form-group">
           <label for="login">Login</label>
-          <input type="text" name="login" class="form-control" title="Login" id="login" placeholder="Login" required>
+          <input type="text" name="login" class="form-control" title="Login" id="login" placeholder="Login" required autofocus>
         </div>
 
         <div class="form-group">
