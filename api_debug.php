@@ -1,10 +1,3 @@
-<?php
-session_start();
-$_SESSION['id'] = 38;
-$_SESSION["login"] = "api";
-$_SESSION['avatar'] = "no_avatar.jpg"
-
-?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -22,6 +15,34 @@ $_SESSION['avatar'] = "no_avatar.jpg"
 
   <h1>API test</h1>
 
+  <form method="post" action="api/register.php" enctype="multipart/form-data">
+
+    <div class="form-group">
+      <label for="login2">Login</label>
+      <input type="text" name="login" class="form-control" title="Login" id="login2" value="api" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email2">Email</label>
+      <input type="email" name="email" class="form-control" title="Email" id="email2" value="api@ap.i" required>
+    </div>
+
+    <div class="form-group">
+      <label for="pass2">Hasło</label>
+      <input type="password" name="pass" class="form-control" title="Hasło" id="pass2" value="api" required>
+    </div>
+
+    <div class="form-group">
+      <label for="avatar2">Awatar</label>
+      <input type="file" name="avatar" class="form-control" title="Awatar" id="avatar2">
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-default">Zarejestruj</button>
+    </div>
+
+  </form>
+
   <hr/>
   Logowanie:<br/>
   <form method="post" action="api/login.php">
@@ -29,7 +50,7 @@ $_SESSION['avatar'] = "no_avatar.jpg"
     <div class="form-group">
       <label for="login">Login lub email</label>
       <input type="text" name="login" class="form-control" title="Login lub email" id="login" value="api"
-             placeholder="Login lub email" required autofocus>
+             placeholder="Login lub email" required>
     </div>
 
     <div class="form-group">

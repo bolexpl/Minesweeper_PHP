@@ -12,13 +12,6 @@ if(isset($_SESSION['success'])){
 $login = $_POST['login'];
 $pass = $_POST['pass'];
 
-$db = new PDO('mysql:host=' . $db_host . ";dbname=$db_name;charset=utf8", $db_user, $db_password,
-    array(
-        PDO::ATTR_EMULATE_PREPARES => false,
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    )
-);
-
 try {
     $stmt = $db->prepare("select * from users where login=:login or email=:email");
     $stmt->bindValue(":login", $login, PDO::PARAM_STR);

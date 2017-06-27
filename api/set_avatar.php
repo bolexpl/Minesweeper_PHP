@@ -2,6 +2,8 @@
 session_start();
 require_once "../php/connect.php";
 
+header("Content-type:application/json");
+
 $response = [];
 $response['error'] = null;
 
@@ -74,4 +76,4 @@ if (!isset($_SESSION['login'])) {
         $response['error'] = "Błąd bazy danych";
     }
 }
-echo json_encode($response);
+echo json_encode($response, JSON_PRETTY_PRINT);

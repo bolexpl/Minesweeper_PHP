@@ -1,17 +1,15 @@
 <?php
 session_start();
-require_once "connect.php";
+require_once "../php/connect.php";
 
-if (isset($_SESSION['error'])) {
-    unset($_SESSION['error']);
-}
-if (isset($_SESSION['success'])) {
-    unset($_SESSION['success']);
-}
+header("Content-type:application/json");
 
 $login = $_POST['login'];
 $email = $_POST['email'];
 $pass = $_POST['pass'];
+
+$response = [];
+$response['error'] = null;
 
 try {
     $db->beginTransaction();
@@ -31,12 +29,12 @@ try {
         if (is_uploaded_file($_FILES['avatar']['tmp_name'])) {
 
             if ($_FILES['avatar']['size'] > $max_rozmiar) {
-                $_SESSION['error'] = "Plik jest za duży";
+                $response['error'] = "Plik jest za duży";
             } else {
 
                 if (isset($_FILES['avatar']['type']) && $_FILES['avatar']['type'] != "image/jpeg" && $_FILES['avatar']['type'] != "image/png") {
                     echo 'Typ: ' . $_FILES['avatar']['type'] . '<br/>';
-                    $_SESSION['error'] = "Zły format pliku";
+                    $response['error'] = "Zły format pliku";
 
                 } else {
                     $filename = generateRandomString();
@@ -59,20 +57,15 @@ try {
         }
         $stmt->execute();
 
-        $_SESSION['success'] = "Zarejestrowano";
+        $response['success'] = "Zarejestrowano";
     } else {
-        $_SESSION['error'] = "Nazwa użytkownika zajęta";
+        $response['error'] = "Nazwa użytkownika zajęta";
     }
 
     $db->commit();
 
 } catch (PDOException $e) {
     $db->rollBack();
-    $_SESSION['error'] = "Błąd rejestracji";
+    $response['error'] = "Błąd rejestracji";
 }
-
-if (isset($_SESSION['error'])) {
-    header("Location: ../register_form.php");
-} else {
-    header("Location: ../index.php");
-}
+echo json_encode($response, JSON_PRETTY_PRINT);
