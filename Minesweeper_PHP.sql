@@ -43,16 +43,16 @@ CREATE TABLE IF NOT EXISTS `records` (
 -- Zrzut danych tabeli `records`
 --
 
-INSERT INTO `records` (`id`, `user_id`, `czas`, `board`) VALUES
-(25, 19, 50, '16x16'),
-(26, 21, 13, '8x8'),
-(27, 21, 89, '16x16'),
-(38, 22, 29, '8x8'),
-(40, 19, 11, '8x8'),
-(45, 19, 14, '8x8'),
-(46, 19, 20, '8x8'),
-(47, 19, 76, '16x16'),
-(49, 21, 84, '16x16');
+# INSERT INTO `records` (`id`, `user_id`, `czas`, `board`) VALUES
+# (25, 19, 50, '16x16'),
+# (26, 21, 13, '8x8'),
+# (27, 21, 89, '16x16'),
+# (38, 22, 29, '8x8'),
+# (40, 19, 11, '8x8'),
+# (45, 19, 14, '8x8'),
+# (46, 19, 20, '8x8'),
+# (47, 19, 76, '16x16'),
+# (49, 21, 84, '16x16');
 
 -- --------------------------------------------------------
 
@@ -73,11 +73,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `email`, `pass`, `avatar`) VALUES
-(19, 'test', 'test@te.st', '$2y$10$dBIcYu2M8M427Urqa2CXJOIsQGbGpONTWCry.kMzuLxRt0.WlE226', 'no_avatar.jpg'),
-(21, 'admin', 'admin@ad.min', '$2y$10$bQeJrVTbRtdIfywqxm6Pf.V4OSO0N1Kt1AyVqHXe6gSKBrdaJLF3i', 'no_avatar.jpg'),
-(22, 'debug', 'debug@wp.pl', '$2y$10$p2n7xL2kMRIAwR8y5/Xmlu4Bjc1WXETk3TMQmpyTdFFBAoIUUGTnu', 'no_avatar.jpg'),
-(29, 'java', 'java@ja.va', '$2a$10$9XQmeShEEy2J48inwRvLPuOsB5y3FiNPtmIVTJruQnXYGF4fUIJZO', 'no_avatar.jpg');
+# INSERT INTO `users` (`id`, `login`, `email`, `pass`, `avatar`) VALUES
+# (19, 'test', 'test@te.st', '$2y$10$dBIcYu2M8M427Urqa2CXJOIsQGbGpONTWCry.kMzuLxRt0.WlE226', 'no_avatar.jpg'),
+# (21, 'admin', 'admin@ad.min', '$2y$10$bQeJrVTbRtdIfywqxm6Pf.V4OSO0N1Kt1AyVqHXe6gSKBrdaJLF3i', 'no_avatar.jpg'),
+# (22, 'debug', 'debug@wp.pl', '$2y$10$p2n7xL2kMRIAwR8y5/Xmlu4Bjc1WXETk3TMQmpyTdFFBAoIUUGTnu', 'no_avatar.jpg'),
+# (29, 'java', 'java@ja.va', '$2a$10$9XQmeShEEy2J48inwRvLPuOsB5y3FiNPtmIVTJruQnXYGF4fUIJZO', 'no_avatar.jpg');
 
 --
 -- Ograniczenia dla zrzutów tabel
