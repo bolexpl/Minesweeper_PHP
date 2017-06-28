@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -13,7 +16,7 @@
 <body>
 <div class="container">
 
-  <h1>API test</h1>
+  <h1>API test | <?= isset($_SESSION['login']) ? "Zalogowany jako: " . $_SESSION["login"] : "Wylogowany" ?></h1>
 
   <hr/>
 
