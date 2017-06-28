@@ -15,6 +15,11 @@
 
   <h1>API test</h1>
 
+  <a href="api/records.php">rekords</a><br/>
+  <a href="api/records.php?board=8x8">rekords 8x8</a><br/>
+  <br/>
+  <a href="api/records_user.php">rekords_user</a><br/><br/>
+
   <form method="post" action="api/register.php" enctype="multipart/form-data">
 
     <div class="form-group">

@@ -64,7 +64,6 @@ require_once "parts/header.php";
               <td>Czas</td>
               <td>Plansza</td>
               <td>Gracz</td>
-<!--              <td></td>-->
             </tr>
             </thead>
             <tbody>
@@ -77,14 +76,7 @@ require_once "parts/header.php";
                 <td><?= $i++ ?>.</td>
                 <td><?= $row['czas'] ?>s</td>
                 <td><?= $row['board'] ?></td>
-                <td><img src="avatars/<?=$row['avatar']?>" alt="" class="avatar"> <?= $row['login'] ?></td>
-<!--                <td>-->
-<!--                  <a href="php/delete_record.php?id=--><?//= $row['id'] ?><!--&page=records&param1=board&param2=--><?//= $_GET['board'] ?><!--">-->
-<!--                    <button type="button" class="btn btn-danger">-->
-<!--                      Usuń-->
-<!--                    </button>-->
-<!--                  </a>-->
-<!--                </td>-->
+                <td><img src="avatars/<?= $row['avatar'] ?>" alt="" class="avatar"> <?= $row['login'] ?></td>
               </tr>
                 <?php
             endforeach;
