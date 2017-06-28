@@ -32,7 +32,6 @@ try {
     if ($stmt->rowCount() == 0) {
         $response["empty"] = "Brak wyników";
     } else {
-        $i = 1;
         foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
             array_push($response["data"], $row);
         }
