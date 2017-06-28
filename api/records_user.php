@@ -22,7 +22,7 @@ try {
         }
     }
 
-    echo json_encode($response);
+    echo json_encode($response, JSON_PRETTY_PRINT);
 
 } catch (PDOException $e) {
     echo json_encode(["error" => "Błąd pobrania wyników"]);

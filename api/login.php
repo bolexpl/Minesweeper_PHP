@@ -29,7 +29,7 @@ try {
             $response['id'] = $result['id'];
             $response['login'] = $result['login'];
             $response['avatar'] = $result['avatar'];
-            echo json_encode($response);
+            echo json_encode($response, JSON_PRETTY_PRINT);
 
         }else{
             echo json_encode("Zły login lub hasło");
