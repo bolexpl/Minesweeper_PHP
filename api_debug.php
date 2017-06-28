@@ -15,6 +15,8 @@
 
   <h1>API test</h1>
 
+  <hr/>
+
   <a href="api/records.php">rekords</a><br/>
   <a href="api/records.php?board=8x8">rekords 8x8</a><br/>
   <br/>
