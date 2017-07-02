@@ -5,7 +5,11 @@ require_once "../php/connect.php";
 header("Content-type:application/json");
 
 $response = [];
-$response['error'] = null;
+$response["error"] = null;
+$response["empty"] = null;
+$response["success"] = true;
+$response["user"] = null;
+$response["data"] = null;
 
 if (!isset($_SESSION['login'])) {
     echo json_encode("login");

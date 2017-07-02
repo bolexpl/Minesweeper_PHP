@@ -9,7 +9,11 @@ $email = $_POST['email'];
 $pass = $_POST['pass'];
 
 $response = [];
-$response['error'] = null;
+$response["error"] = null;
+$response["empty"] = null;
+$response["success"] = true;
+$response["user"] = null;
+$response["data"] = null;
 
 try {
     $db->beginTransaction();

@@ -1,6 +1,13 @@
 <?php
 require_once "../php/connect.php";
 
+$response = [];
+$response["error"] = null;
+$response["empty"] = null;
+$response["success"] = true;
+$response["user"] = null;
+$response["data"] = [];
+
 try {
     $sql = "SELECT records.id, user_id, czas, board, login, avatar FROM records INNER JOIN users ON records.user_id = users.id ORDER BY records.czas";
 
@@ -24,10 +31,6 @@ try {
     $stmt = $db->prepare($sql);
     $stmt->execute();
 
-    $response = [];
-    $response["error"] = null;
-    $response["empty"] = null;
-    $response["data"] = [];
 
     if ($stmt->rowCount() == 0) {
         $response["empty"] = "Brak wyników";
@@ -37,8 +40,8 @@ try {
         }
     }
 
-    echo json_encode($response, JSON_PRETTY_PRINT);
 
 } catch (PDOException $e) {
-    echo json_encode(["error" => "Błąd pobrania wyników"]);
+    $response["error"] = "Błąd pobrania wyników";
 }
+echo json_encode($response, JSON_PRETTY_PRINT);

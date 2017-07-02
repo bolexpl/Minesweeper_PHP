@@ -4,7 +4,8 @@ require_once "../php/connect.php";
 
 header("Content-type:application/json");
 
-if(!isset($_SESSION['login'])){
+//TODO nie używać sesji
+if (!isset($_SESSION['login'])) {
     echo json_encode("false");
     die();
 }
@@ -12,6 +13,13 @@ if(!isset($_SESSION['login'])){
 $user_id = $_SESSION['id'];
 $time = $_POST['time'];
 $board = $_POST['board'];
+
+$response = [];
+$response["error"] = null;
+$response["empty"] = null;
+$response["success"] = false;
+$response["user"] = null;
+$response["data"] = null;
 
 try {
     $db->beginTransaction();
@@ -23,9 +31,10 @@ try {
     $stmt->execute();
 
     $db->commit();
-    echo json_encode(true);
+    $response["success"] = true;
 
 } catch (PDOException $e) {
     $db->rollBack();
-    echo json_encode("Błąd bazy danych");
+    $response["error"] = "Błąd bazy danych";
 }
+echo json_encode($response, JSON_PRETTY_PRINT);

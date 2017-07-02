@@ -4,6 +4,13 @@ require_once "../php/connect.php";
 
 header("Content-type:application/json");
 
+$response = [];
+$response["error"] = null;
+$response["empty"] = null;
+$response["success"] = true;
+$response["user"] = null;
+$response["data"] = null;
+
 try {
     $db->beginTransaction();
 
@@ -13,9 +20,10 @@ try {
 
     $db->commit();
 
-    echo json_encode(true);
+    $response["success"] =true;
 
 } catch (PDOException $e) {
     $db->rollBack();
-    echo json_encode("Błąd usuwania wyniku");
+    $response["error"] ="Błąd usuwania wyniku";
 }
+echo json_encode($response);
