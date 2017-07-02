@@ -25,14 +25,11 @@ try {
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
 
         if (password_verify($pass, $result["pass"])) {
-            $response['error'] = null;
-            $response['success'] = "Zalogowano";
-            $user = [
+            $response["user"] = [
                 "id" => $result['id'],
                 "login" => $result['login'],
                 "avatar" => $result['avatar']
             ];
-            $response["user"]=$user;
 
         } else {
             $response["error"] = "Zły login lub hasło";

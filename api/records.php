@@ -29,13 +29,13 @@ try {
         }
     }
 
-    if (isset($_GET["page"]) && isset($_GET["count"])) {
+    if (isset($_GET["page"]) && isset($_GET["limit"])) {
         $sql .= " LIMIT :offset, :limit";
     }
 
     $stmt = $db->prepare($sql);
 
-    if (isset($_GET["page"]) && isset($_GET["count"])) {
+    if (isset($_GET["page"]) && isset($_GET["limit"])) {
         $stmt->bindValue(":offset", $_GET["page"] * $_GET["count"], PDO::PARAM_INT);
         $stmt->bindValue(":limit", $_GET["count"], PDO::PARAM_INT);
     }
