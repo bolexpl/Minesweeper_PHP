@@ -1,16 +1,9 @@
 <?php
-session_start();
 require_once "../php/connect.php";
 
 header("Content-type:application/json");
 
-//TODO nie używać sesji
-if (!isset($_SESSION['login'])) {
-    echo json_encode("false");
-    die();
-}
-
-$user_id = $_SESSION['id'];
+$user_id = $_POST['id'];
 $time = $_POST['time'];
 $board = $_POST['board'];
 

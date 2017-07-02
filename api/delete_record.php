@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "../php/connect.php";
 
 header("Content-type:application/json");

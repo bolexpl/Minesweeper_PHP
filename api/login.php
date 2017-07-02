@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "../php/connect.php";
 
 header("Content-type:application/json");
@@ -7,12 +6,11 @@ header("Content-type:application/json");
 $login = $_POST['login'];
 $pass = $_POST['pass'];
 
-//TODO nie używać sesji
 $response = [];
 $response["error"] = null;
 $response["empty"] = null;
 $response["success"] = true;
-$response["user"] = null;
+$response["user"] = [];
 $response["data"] = null;
 
 try {
@@ -27,11 +25,6 @@ try {
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
 
         if (password_verify($pass, $result["pass"])) {
-
-            $_SESSION['id'] = $result['id'];
-            $_SESSION['login'] = $result['login'];
-            $_SESSION['avatar'] = $result['avatar'];
-
             $response['error'] = null;
             $response['success'] = "Zalogowano";
             $user = [

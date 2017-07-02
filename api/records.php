@@ -28,7 +28,18 @@ try {
                 break;
         }
     }
+
+    if (isset($_GET["page"]) && isset($_GET["count"])) {
+        $sql .= " LIMIT :offset, :limit";
+    }
+
     $stmt = $db->prepare($sql);
+
+    if (isset($_GET["page"]) && isset($_GET["count"])) {
+        $stmt->bindValue(":offset", $_GET["page"] * $_GET["count"], PDO::PARAM_INT);
+        $stmt->bindValue(":limit", $_GET["count"], PDO::PARAM_INT);
+    }
+
     $stmt->execute();
 
 
@@ -43,5 +54,6 @@ try {
 
 } catch (PDOException $e) {
     $response["error"] = "Błąd pobrania wyników";
+    echo $e;
 }
 echo json_encode($response, JSON_PRETTY_PRINT);

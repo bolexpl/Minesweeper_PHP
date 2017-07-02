@@ -21,6 +21,8 @@ session_start();
   <hr/>
 
   <a href="api/records.php">rekords</a><br/>
+  <a href="api/records.php?page=0&count=2">rekords</a><br/>
+  <a href="api/records.php?page=1&count=2">rekords</a><br/>
   <a href="api/records.php?board=8x8">rekords 8x8</a><br/>
   <br/>
   <a href="api/records_user.php">rekords_user</a><br/>
