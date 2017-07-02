@@ -17,6 +17,7 @@ require_once "parts/header.php";
     <div class="form-group" style="width: 50%;">
       <label for="avatar">Zmiana awatara</label>
       <input type="file" name="avatar" class="form-control" title="Aby usunąć awatar nie podawaj obrazka" id="avatar" placeholder="Awatar">
+      <input type="hidden" name="id"/>
     </div>
 
     <button class="btn btn-default" type="submit" style="display: inline-block;">Zmień</button>
