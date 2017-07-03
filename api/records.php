@@ -36,8 +36,8 @@ try {
     $stmt = $db->prepare($sql);
 
     if (isset($_GET["page"]) && isset($_GET["limit"])) {
-        $stmt->bindValue(":offset", $_GET["page"] * $_GET["count"], PDO::PARAM_INT);
-        $stmt->bindValue(":limit", $_GET["count"], PDO::PARAM_INT);
+        $stmt->bindValue(":offset", $_GET["page"] * $_GET["limit"], PDO::PARAM_INT);
+        $stmt->bindValue(":limit", $_GET["limit"], PDO::PARAM_INT);
     }
 
     $stmt->execute();
